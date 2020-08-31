@@ -29,13 +29,27 @@
 .hideSomething:hover {
     width: 25px;
     height: 25px;
+    top: 18px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .findSomething:hover {
     width: 25px;
     height: 25px;
+    top: 43px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.findSomething:active {
+    width: 25px;
+    height: 25px;
+    top: 45px;
+}
+
+.hideSomething:active {
+    width: 25px;
+    height: 25px;
+    top: 20px;
 }
 
 .buttons:hover {

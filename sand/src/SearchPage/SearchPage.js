@@ -33,12 +33,22 @@ export default function SearchPage() {
     }
 
     useEffect(() => {
+        window.addEventListener("touchmove", touchMove);
+        // return () => window.removeEventListener("touchmove", touchMove);
         window.addEventListener("mousemove", mouseMove);
-        return () => window.removeEventListener("mousemove", mouseMove);
+        // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);
 
+    function touchMove(e) {
+        setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        if (e.touches[0].clientX > 390 && e.touches[0].clientX <= 400) {
+            if (e.touches[0].clientY > 40 && e.touches[0].clientY <= 50) {
+                window.alert("You found 12 eth!");
+            }
+        }
+    }
+
     function mouseMove(e) {
-        // console.log("x = " + e.clientX + " y = " + e.clientY);
         setMousePosition({ x: e.clientX, y: e.clientY });
         if (e.clientX > 390 && e.clientX <= 400) {
             if (e.clientY > 40 && e.clientY <= 50) {
@@ -49,7 +59,7 @@ export default function SearchPage() {
 
     return (
         <div>
-            <div className="treasureHuntBackground"></div>
+            <div className="treasureHuntBackground" ></div>
             <p className="treasureHuntLogo" style={style.treasureHuntLogo}>o</p>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
