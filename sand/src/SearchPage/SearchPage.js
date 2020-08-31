@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "../Components/Buttons";
+import Popup from "../Components/Popup";
 import "./SearchPageStyle.css";
 
 
@@ -63,6 +64,7 @@ export default function SearchPage() {
             <p className="treasureHuntLogo" style={style.treasureHuntLogo}>o</p>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
+            <Popup />
         </div>
     );
 }   
