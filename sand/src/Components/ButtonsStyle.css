@@ -1,13 +1,43 @@
 
 .buttons {
     position: fixed;
-    right: 10px;
-    top: 20px;
+    right: 20px;
+    top: 10px;
 }
 
 .hideSomething {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
     border-radius: 2px;
     background-color: black;
+}
+
+.findSomething {
+    width: 25px;
+    height: 25px;
+    position: fixed;
+    right: 20px;
+    top: 45px;
+    border-radius: 2px;
+    margin-top: 10px;
+    background-color: blue;
+}
+
+.hideSomething:hover {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.findSomething:hover {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.buttons:hover {
+    cursor: pointer;
 }
