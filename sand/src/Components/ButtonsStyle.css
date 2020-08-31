@@ -2,7 +2,6 @@
 .buttons {
     position: fixed;
     right: 20px;
-    top: 10px;
 }
 
 .hideSomething {
@@ -10,7 +9,7 @@
     height: 45px;
     position: fixed;
     right: 20px;
-    top: 20px;
+    top: 30px;
     border-radius: 2px;
     background-color: black;
 }
@@ -20,34 +19,30 @@
     height: 45px;
     position: fixed;
     right: 20px;
-    top: 45px;
+    top: 80px;
     border-radius: 2px;
     margin-top: 10px;
     background-color: blue;
 }
 
 .hideSomething:hover {
-
-    top: 18px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .findSomething:hover {
-
-    top: 43px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.findSomething:active {
-    width: 25px;
-    height: 25px;
-    top: 45px;
 }
 
 .hideSomething:active {
     width: 25px;
     height: 25px;
-    top: 20px;
+    top: 30px;
+}
+
+.findSomething:active {
+    width: 25px;
+    height: 25px;
+    top: 80px;
 }
 
 .buttons:hover {

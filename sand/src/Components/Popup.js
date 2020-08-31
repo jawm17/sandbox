@@ -1,6 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Popup(props) {
+    const [initHeight, setInitHeight] = useState(10);
+    const [initWidth, setInitWidth] = useState(10);
+    const [open, setOpen] = useState(true);
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        setInitHeight(350);
+        setInitWidth(400);
+        if (props.type === "eth") {
+            if (props.amount) {
+                setMessage(`You've found ${props.amount} Ethereum!!!`)
+            }
+        }
+    })
 
     const style = {
         shaded: {
@@ -16,20 +30,33 @@ export default function Popup(props) {
         },
         popup: {
             marginTop: 50,
-            width: 400,
-            height: 350,
+            width: initWidth,
+            height: initHeight,
             borderRadius: 5,
-            backgroundColor: "white"
+            backgroundColor: "white",
+            transition: "all 0.3s ease-in-out",
         }
     }
 
-    return (
-        <div>
-            <div style={style.shaded}>
-                <div style={style.popup}>
-                    You've found something!!!
-             </div>
+    function closePopup() {
+        setOpen(false);
+    }
+
+    if (open) {
+        return (
+            <div>
+                <div style={style.shaded}>
+                    <div style={style.popup}>
+                        {message}
+                        <div onClick={() => closePopup()}>x</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return (
+            null
+        );
+    }
+
 }

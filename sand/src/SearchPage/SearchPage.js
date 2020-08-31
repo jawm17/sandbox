@@ -6,6 +6,7 @@ import "./SearchPageStyle.css";
 
 export default function SearchPage() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+    const [discoveryMade, setDiscoverMade] = useState(false);
     const textbg = "https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg";
 
     const style = {
@@ -44,7 +45,7 @@ export default function SearchPage() {
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
         if (e.touches[0].clientX > 390 && e.touches[0].clientX <= 400) {
             if (e.touches[0].clientY > 40 && e.touches[0].clientY <= 50) {
-                window.alert("You found 12 eth!");
+                setDiscoverMade(true);
             }
         }
     }
@@ -53,7 +54,7 @@ export default function SearchPage() {
         setMousePosition({ x: e.clientX, y: e.clientY });
         if (e.clientX > 390 && e.clientX <= 400) {
             if (e.clientY > 40 && e.clientY <= 50) {
-                window.alert("You found 12 eth!");
+                setDiscoverMade(true)
             }
         }
     }
@@ -64,7 +65,7 @@ export default function SearchPage() {
             <p className="treasureHuntLogo" style={style.treasureHuntLogo}>o</p>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
-            <Popup />
+            {discoveryMade ? <Popup type="eth" amount="0.05"/> : null}
         </div>
     );
 }   
