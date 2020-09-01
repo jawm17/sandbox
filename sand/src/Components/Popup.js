@@ -22,7 +22,7 @@ export default function Popup(props) {
             marginTop: 30,
             maxWIdth: 400,
             width: "97vw",
-            height: "93vh",
+            height: "80vh",
             borderRadius: 5,
             backgroundColor: "white",
             transition: "all 0.3s ease-in-out",
@@ -33,7 +33,7 @@ export default function Popup(props) {
         },
         img: {
             width: 300,
-            height: 800
+            height: 400
         }
     }
 
@@ -60,7 +60,7 @@ export default function Popup(props) {
                             {message}
                         </div>
                         <img style={style.img} src="https://www.thesun.co.uk/wp-content/uploads/2019/05/danny1.jpg"></img>
-                        {/* <div onClick={() => closePopup()}>x</div> */}
+                        <div onClick={() => props.closeModal()}>x</div>
                     </div>
                 </div>
             </div>
