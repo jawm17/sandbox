@@ -43,7 +43,7 @@ export default function SearchPage() {
 
     function touchMove(e) {
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-        if (e.touches[0].clientX > 0 && e.touches[0].clientX <= 50) {
+        if (e.touches[0].clientX > 0 && e.touches[0].clientX <= 500) {
             if (e.touches[0].clientY > 0 && e.touches[0].clientY <= 50) {
                 setDiscoverMade(true);
             }
