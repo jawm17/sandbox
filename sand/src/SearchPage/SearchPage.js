@@ -44,7 +44,7 @@ export default function SearchPage() {
     function touchMove(e) {
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
         if (e.touches[0].clientX > 20 && e.touches[0].clientX <= 60) {
-            if (e.touches[0].clientY > 400 && e.touches[0].clientY <= 600) {
+            if (e.touches[0].clientY > 400 && e.touches[0].clientY <= 450) {
                 setDiscoverMade(true);
             }
         }
@@ -53,7 +53,7 @@ export default function SearchPage() {
     function mouseMove(e) {
         setMousePosition({ x: e.clientX, y: e.clientY });
         if (e.clientX > 20 && e.clientX <= 100) {
-            if (e.clientY > 400 && e.clientY <= 600) {
+            if (e.clientY > 400 && e.clientY <= 450) {
                 setDiscoverMade(true)
             }
         }
