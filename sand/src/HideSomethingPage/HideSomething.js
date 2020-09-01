@@ -19,7 +19,7 @@ export default function HideSomething() {
             marginTop: 40,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",
-            transition: "all 1s ease-in-out"
+            transition: "all 2s ease-in-out"
         }
     }
 
@@ -32,7 +32,7 @@ export default function HideSomething() {
         <div>
             <Buttons />
             <div style={style.title}>
-                HideSomething
+                Hide Something
             </div>
         </div>
     );
