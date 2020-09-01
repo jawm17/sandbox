@@ -61,7 +61,7 @@ export default function SearchPage() {
 
     return (
         <div>
-            <div className="treasureHuntBackground" ></div>
+            <div className="treasureHuntBackground"></div>
             <p className="treasureHuntLogo" style={style.treasureHuntLogo}>o</p>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
