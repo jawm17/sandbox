@@ -3,29 +3,29 @@ import Buttons from "../Components/Buttons";
 import "./HideSomething.css";
 
 export default function HideSomething() {
-    const [height, setHeight] = useState(0);
-    const [width, setWidth] = useState(0);
+    const [x, setX] = useState(1000);
+    const [y, setY] = useState(-1000);
 
     const style = {
         title: {
             fontFamily: 'Fredoka One, cursive',
-            background: `url(https://lh3.googleusercontent.com/proxy/PIwidsZgo6c-2CbNT1wJnDPgsJD5xksw0xPVjkk3NVrZlkrjBwUAm3ibt1VXjnN9smTpBxtW-lZSu4b_XqqbEz23e745ViHhs4bwNhSFgFZ9KNVcNsirfF70XnMWZvDHj4ZafMoOMrSBoVoEIxSg3piRJmHAhol_NOewZjYvXp7WHrVV8rlOhWYk3tPYcA)`,
-            height: height,
-            width: width,
-            backgroundPositionX: -500,
-            backgroundPositionY: -5000,
+            background: `url(https://www.cottodeste.us/media/immagini/185_n_COTTODESTE-BLACK-WHITE-black-minimale.jpg)`,
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: x,
+            backgroundPositionY: y,
+            height: 60,
             fontSize: 45,
             marginLeft: "5%",
             marginTop: 40,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",
-            transition: "all 2s ease-in-out"
+            transition: "all 0.5s ease-in-out"
         }
     }
 
     useEffect(() => {
-        setHeight("100vh");
-        setWidth("100vw");
+        setX(0);
+        setY(0);
     });
 
     return (
