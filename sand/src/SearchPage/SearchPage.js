@@ -12,7 +12,7 @@ export default function SearchPage() {
     const style = {
         treasureHuntLogo: {
             background: `url(${textbg})`,
-            backgroundSize: "100vw 100vh",
+            backgroundSize: "1000 1000",
             backgroundColor: "gray",
             backgroundPositionX: mousePosition.x,
             backgroundPositionY: mousePosition.y,
@@ -45,8 +45,8 @@ export default function SearchPage() {
 
     function touchMove(e) {
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-        if (e.touches[0].clientX > 173 && e.touches[0].clientX <= 218) {
-            if (e.touches[0].clientY > 770 && e.touches[0].clientY <= 800) {
+        if (e.touches[0].clientX > 155 && e.touches[0].clientX <= 230) {
+            if (e.touches[0].clientY > 262 && e.touches[0].clientY <= 334) {
                 setDiscoverMade(true);
                 // setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
@@ -55,8 +55,8 @@ export default function SearchPage() {
 
     function mouseMove(e) {
         setMousePosition({ x: e.clientX, y: e.clientY });
-        if (e.clientX > 173 && e.clientX <= 218) {
-            if (e.clientY > 770 && e.clientY <= 800) {
+        if (e.clientX > 155 && e.clientX <= 230) {
+            if (e.clientY > 262 && e.clientY <= 334) {
                 setDiscoverMade(true);
                 // setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
