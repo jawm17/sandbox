@@ -39,6 +39,7 @@ export default function SearchPage() {
         // return () => window.removeEventListener("touchmove", touchMove);
         window.addEventListener("mousemove", mouseMove);
         // return () => window.removeEventListener("mousemove", mouseMove);
+        window.addEventListener("touchStart", touchMove);
     }, []);
 
     function touchMove(e) {
