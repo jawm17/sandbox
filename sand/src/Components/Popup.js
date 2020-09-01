@@ -32,8 +32,8 @@ export default function Popup(props) {
             backgroundColor: "lightblue"
         },
         img: {
-            width: 100,
-            height: 100
+            width: 300,
+            height: 800
         }
     }
 
@@ -42,7 +42,7 @@ export default function Popup(props) {
         setInitWidth(400);
         if (props.type === "eth") {
             if (props.amount) {
-                setMessage(`Have fun on zoom! I love you`);
+                setMessage(`Fuck You`);
             }
         }
     })
@@ -59,8 +59,8 @@ export default function Popup(props) {
                         <div>
                             {message}
                         </div>
-                        <img style={style.img} src="https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png"></img>
-                        <div onClick={() => closePopup()}>x</div>
+                        <img style={style.img} src="https://www.thesun.co.uk/wp-content/uploads/2019/05/danny1.jpg"></img>
+                        {/* <div onClick={() => closePopup()}>x</div> */}
                     </div>
                 </div>
             </div>
