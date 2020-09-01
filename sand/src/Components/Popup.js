@@ -26,6 +26,14 @@ export default function Popup(props) {
             borderRadius: 5,
             backgroundColor: "white",
             transition: "all 0.3s ease-in-out",
+            textAlign: "center",
+            fontFamily: 'Fredoka One, cursive',
+            fontSize: 40,
+            backgroundColor: "lightblue"
+        },
+        img: {
+            width: 100,
+            height: 100
         }
     }
 
@@ -34,7 +42,7 @@ export default function Popup(props) {
         setInitWidth(400);
         if (props.type === "eth") {
             if (props.amount) {
-                setMessage(`You've found ${props.amount} Ethereum!!!`)
+                setMessage(`Have fun on zoom! I love you`);
             }
         }
     })
@@ -48,8 +56,10 @@ export default function Popup(props) {
             <div>
                 <div style={style.shaded}>
                     <div style={style.popup}>
-                        {message}
-                        <img src="https://cdn.podbay.fm/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL2QzdDNvemZ0bWRtaDNpLmNsb3VkZnJvbnQubmV0L3Byb2R1Y3Rpb24vcG9kY2FzdF91cGxvYWRlZC8xNTE0NzM3LzE1MTQ3MzctMTU1MzU2MjA3MjkyMy0xZTIwNDY4ZTkyOWM0LmpwZyIsImZhbGxiYWNrIjoiaHR0cHM6Ly9pczQtc3NsLm16c3RhdGljLmNvbS9pbWFnZS90aHVtYi9Qb2RjYXN0czEyMy92NC84NS81Ny8xYi84NTU3MWI0ZC1mNjliLTI1OWMtYzRmYi0xZTNiMzc5YmVkODEvbXphXzc1NTM3MjQyNDMxMTAxMTIyMjcuanBnLzYwMHg2MDBiYi5qcGcifQ.kSy_DB1ai7Loj2qkUwOCsDasoBihdroHe3EVDANcSRU.jpg?width=400&height=400"></img>
+                        <div>
+                            {message}
+                        </div>
+                        <img style={style.img} src="https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png"></img>
                         <div onClick={() => closePopup()}>x</div>
                     </div>
                 </div>

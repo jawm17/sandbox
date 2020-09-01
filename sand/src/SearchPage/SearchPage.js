@@ -46,7 +46,7 @@ export default function SearchPage() {
         if (e.touches[0].clientX > 173 && e.touches[0].clientX <= 218) {
             if (e.touches[0].clientY > 770 && e.touches[0].clientY <= 800) {
                 setDiscoverMade(true);
-                setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
+                // setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
         }
     }
@@ -56,7 +56,7 @@ export default function SearchPage() {
         if (e.clientX > 173 && e.clientX <= 218) {
             if (e.clientY > 770 && e.clientY <= 800) {
                 setDiscoverMade(true);
-                setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
+                // setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
         }
     }
