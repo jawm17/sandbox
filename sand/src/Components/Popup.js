@@ -42,7 +42,7 @@ export default function Popup(props) {
         setInitWidth(400);
         if (props.type === "eth") {
             if (props.amount) {
-                setMessage(`Fuck You`);
+                setMessage(`You've found ${props.amount} Ethereum`);
             }
         }
     })
