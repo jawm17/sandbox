@@ -12,7 +12,7 @@ export default function SearchPage() {
     const style = {
         treasureHuntLogo: {
             background: `url(${textbg})`,
-            backgroundSize: "1000 1000",
+            backgroundSize: "200vw 200vh",
             backgroundColor: "gray",
             backgroundPositionX: mousePosition.x,
             backgroundPositionY: mousePosition.y,
