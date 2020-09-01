@@ -7,7 +7,7 @@ import "./SearchPageStyle.css";
 export default function SearchPage() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
     const [discoveryMade, setDiscoverMade] = useState(false);
-    const textbg = "https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg";
+    const [textbg, setTextbg] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721");
 
     const style = {
         treasureHuntLogo: {
@@ -43,18 +43,20 @@ export default function SearchPage() {
 
     function touchMove(e) {
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-        if (e.touches[0].clientX > 20 && e.touches[0].clientX <= 60) {
-            if (e.touches[0].clientY > 400 && e.touches[0].clientY <= 450) {
+        if (e.touches[0].clientX > 173 && e.touches[0].clientX <= 218) {
+            if (e.touches[0].clientY > 770 && e.touches[0].clientY <= 800) {
                 setDiscoverMade(true);
+                setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
         }
     }
 
     function mouseMove(e) {
         setMousePosition({ x: e.clientX, y: e.clientY });
-        if (e.clientX > 20 && e.clientX <= 100) {
-            if (e.clientY > 400 && e.clientY <= 450) {
-                setDiscoverMade(true)
+        if (e.clientX > 173 && e.clientX <= 218) {
+            if (e.clientY > 770 && e.clientY <= 800) {
+                setDiscoverMade(true);
+                setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
         }
     }
@@ -65,7 +67,7 @@ export default function SearchPage() {
             <p className="treasureHuntLogo" style={style.treasureHuntLogo}>o</p>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
-            {discoveryMade ? <Popup type="eth" amount="0.05"/> : null}
+            {discoveryMade ? <Popup type="eth" amount="0.05" /> : null}
         </div>
     );
 }   
