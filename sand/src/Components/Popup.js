@@ -6,16 +6,6 @@ export default function Popup(props) {
     const [open, setOpen] = useState(true);
     const [message, setMessage] = useState("");
 
-    useEffect(() => {
-        setInitHeight(350);
-        setInitWidth(400);
-        if (props.type === "eth") {
-            if (props.amount) {
-                setMessage(`You've found ${props.amount} Ethereum!!!`)
-            }
-        }
-    })
-
     const style = {
         shaded: {
             position: "fixed",
@@ -38,6 +28,16 @@ export default function Popup(props) {
         }
     }
 
+    useEffect(() => {
+        setInitHeight(350);
+        setInitWidth(400);
+        if (props.type === "eth") {
+            if (props.amount) {
+                setMessage(`You've found ${props.amount} Ethereum!!!`)
+            }
+        }
+    })
+
     function closePopup() {
         setOpen(false);
     }
@@ -54,9 +54,7 @@ export default function Popup(props) {
             </div>
         );
     } else {
-        return (
-            null
-        );
+        return null;
     }
 
 }

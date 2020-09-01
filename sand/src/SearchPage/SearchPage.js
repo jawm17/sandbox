@@ -18,8 +18,8 @@ export default function SearchPage() {
             fontFamily: 'Fredoka One, cursive',
             position: "fixed",
             fontSize: 225,
-            bottom: 10,
-            left: 40,
+            bottom: 0,
+            left: 25,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",
             margin: 0,
@@ -43,8 +43,8 @@ export default function SearchPage() {
 
     function touchMove(e) {
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-        if (e.touches[0].clientX > 390 && e.touches[0].clientX <= 400) {
-            if (e.touches[0].clientY > 40 && e.touches[0].clientY <= 50) {
+        if (e.touches[0].clientX > 0 && e.touches[0].clientX <= 50) {
+            if (e.touches[0].clientY > 0 && e.touches[0].clientY <= 50) {
                 setDiscoverMade(true);
             }
         }
@@ -52,8 +52,8 @@ export default function SearchPage() {
 
     function mouseMove(e) {
         setMousePosition({ x: e.clientX, y: e.clientY });
-        if (e.clientX > 390 && e.clientX <= 400) {
-            if (e.clientY > 40 && e.clientY <= 50) {
+        if (e.clientX > 0 && e.clientX <= 50) {
+            if (e.clientY > 0 && e.clientY <= 50) {
                 setDiscoverMade(true)
             }
         }
