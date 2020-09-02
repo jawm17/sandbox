@@ -9,17 +9,26 @@ export default function HideSomething() {
     const style = {
         title: {
             fontFamily: 'Fredoka One, cursive',
-            background: `url(https://www.cottodeste.us/media/immagini/185_n_COTTODESTE-BLACK-WHITE-black-minimale.jpg)`,
+            // background: `url(https://www.cottodeste.us/media/immagini/185_n_COTTODESTE-BLACK-WHITE-black-minimale.jpg)`,
             backgroundRepeat: "no-repeat",
             backgroundPositionX: x,
             backgroundPositionY: y,
             height: 60,
             fontSize: 45,
-            marginLeft: "5%",
-            marginTop: 40,
-            WebkitTextFillColor: "transparent",
-            WebkitBackgroundClip: "text",
-            transition: "all 0.5s ease-in-out"
+            marginLeft: 30,
+            marginTop: 70,
+            // WebkitTextFillColor: "transparent",
+            // WebkitBackgroundClip: "text",
+            transition: "all 0.5s ease-in-out",
+            color: "white"
+        },
+        background: {
+            height: "100vh",
+            width: "100vw",
+            backgroundColor: "black",
+            position: "fixed",
+            top: 0,
+            left: 0
         }
     }
 
@@ -30,9 +39,11 @@ export default function HideSomething() {
 
     return (
         <div>
-            <Buttons />
-            <div style={style.title}>
-                Hide Something
+            <div style={style.background} className="blackBack">
+                <Buttons page="hide"/>
+                <div style={style.title}>
+                    Hide Something
+            </div>
             </div>
         </div>
     );
