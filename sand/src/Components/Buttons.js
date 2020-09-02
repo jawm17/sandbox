@@ -10,12 +10,23 @@ export default function Buttons(props) {
         }
     });
 
-    return (
-        <div className="buttons">
-            <div className="buttonArea" onClick={() => history.push("/hide")}>
-                {props.page === "hide" ? <div className="findSomething"></div> : <div className="hideSomething"></div>}
+    if (props.page === "hide") {
+        return (
+            <div className="buttons">
+                <div className="buttonArea" onClick={() => history.push("/")}>
+                    <div className="findSomething"></div>
+                </div>
+                <div className="info"></div>
             </div>
-            <div className="info"></div>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <div className="buttons">
+                <div className="buttonArea" onClick={() => history.push("/hide")}>
+                    <div className="hideSomething"></div>
+                </div>
+                <div className="info"></div>
+            </div>
+        );
+    }
 }
