@@ -14,7 +14,9 @@ export default function Buttons(props) {
         return (
             <div className="buttons">
                 <div className="buttonArea" onClick={() => history.push("/")}>
-                    <div className="findSomething"></div>
+                    <div className="findSomething">
+                        <img className="searchIcon" src="https://img.icons8.com/ios-glyphs/60/000000/search.png"/>
+                    </div>
                 </div>
                 <div className="info"></div>
             </div>
