@@ -7,6 +7,9 @@ import "./SearchPageStyle.css";
 export default function SearchPage() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
     const [discoveryMade, setDiscoverMade] = useState(false);
+    const [size, setSize] = useState(125);
+    const [left, setLeft] = useState(170);
+    const [fontSize, setFontSize] = useState(40);
     const [textbg, setTextbg] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721");
 
     const style = {
@@ -19,9 +22,9 @@ export default function SearchPage() {
             fontFamily: 'Fredoka One, cursive',
             position: "fixed",
             fontSize: 225,
-            width: 150,
-            height: 150,
-            borderRadius: 4,
+            width: size,
+            height: size,
+            borderRadius: 10,
             bottom: 20,
             left: 25,
             backgroundColor: "transparent",
@@ -30,14 +33,19 @@ export default function SearchPage() {
         title: {
             fontFamily: 'Fredoka One, cursive',
             position: "fixed",
-            fontSize: 70,
-            bottom: 50,
-            left: 240,
+            fontSize: fontSize,
+            bottom: 25,
+            left: left,
             margin: 0,
         }
     }
 
     useEffect(() => {
+        if(window.innerWidth <= 600) {
+            setSize(80);
+            setLeft(125);
+            setFontSize(30);
+        }
         window.addEventListener("touchmove", touchMove);
         // return () => window.removeEventListener("touchmove", touchMove);
         window.addEventListener("mousemove", mouseMove);
@@ -73,7 +81,7 @@ export default function SearchPage() {
         <div>
             <div className="treasureHuntBackground"></div>
             <div className="treasureHuntLogo" style={style.treasureHuntLogo}></div>
-            {/* <p style={style.title}>sandsearch.io</p> */}
+            <p style={style.title}>sandsearch.io</p>
             <Buttons />
             {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()} /> : null}
         </div>
