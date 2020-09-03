@@ -8,7 +8,7 @@ function App() {
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path="/">
+        <Route path="/">
           <SearchPage />
         </Route>
         <Route exact path="/hide" component={HideSomething} />
