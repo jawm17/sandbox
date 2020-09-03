@@ -75,7 +75,7 @@ export default function SearchPage() {
             <div className="treasureHuntLogo" style={style.treasureHuntLogo}></div>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
-            {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()}/> : null}
+            {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()} /> : null}
         </div>
     );
 }   
