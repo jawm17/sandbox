@@ -74,7 +74,7 @@ export default function SearchPage() {
     }
 
     function closeModal() {
-        setDiscoverMade(false)
+        setDiscoverMade(false);
     }
 
     return (
