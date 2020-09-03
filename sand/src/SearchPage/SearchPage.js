@@ -8,7 +8,6 @@ export default function SearchPage() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
     const [discoveryMade, setDiscoverMade] = useState(false);
     const [textbg, setTextbg] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721");
-    const coordinates = [""];
 
     const style = {
         treasureHuntLogo: {
@@ -20,10 +19,12 @@ export default function SearchPage() {
             fontFamily: 'Fredoka One, cursive',
             position: "fixed",
             fontSize: 225,
-            bottom: 0,
+            width: 150,
+            height: 150,
+            borderRadius: 4,
+            bottom: 20,
             left: 25,
-            WebkitTextFillColor: "transparent",
-            WebkitBackgroundClip: "text",
+            backgroundColor: "transparent",
             margin: 0,
         },
         title: {
@@ -71,7 +72,7 @@ export default function SearchPage() {
     return (
         <div>
             <div className="treasureHuntBackground"></div>
-            <p className="treasureHuntLogo" style={style.treasureHuntLogo}>o</p>
+            <div className="treasureHuntLogo" style={style.treasureHuntLogo}></div>
             {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
             {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()}/> : null}
