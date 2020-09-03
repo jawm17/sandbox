@@ -46,11 +46,10 @@ export default function SearchPage() {
             setLeft(125);
             setFontSize(30);
         }
-        window.addEventListener("touchmove", touchMove);
-        // return () => window.removeEventListener("touchmove", touchMove);
+        // window.addEventListener("touchmove", touchMove);
+        // window.addEventListener("touchStart", touchMove);
         window.addEventListener("mousemove", mouseMove);
         // return () => window.removeEventListener("mousemove", mouseMove);
-        window.addEventListener("touchStart", touchMove);
     }, []);
 
     function touchMove(e) {
@@ -62,7 +61,7 @@ export default function SearchPage() {
             }
         }
     }
-
+    
     function mouseMove(e) {
         setMousePosition({ x: e.clientX, y: e.clientY });
         if (e.clientX > 155 && e.clientX <= 230) {
