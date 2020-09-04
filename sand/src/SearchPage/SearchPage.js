@@ -13,7 +13,7 @@ export default function SearchPage() {
     const [textbg, setTextbg] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721");
 
     const style = {
-        treasureHuntLogo: {
+        searchBox: {
             background: `url(${textbg})`,
             backgroundSize: "200vw 200vh",
             backgroundColor: "gray",
@@ -41,11 +41,11 @@ export default function SearchPage() {
     }
 
     useEffect(() => {
-        if(window.innerWidth <= 600) {
+        // if(window.innerWidth <= 600) {
             setSize(80);
             setLeft(125);
             setFontSize(30);
-        }
+        // }
         // window.addEventListener("touchmove", touchMove);
         // window.addEventListener("touchStart", touchMove);
         window.addEventListener("mousemove", mouseMove);
@@ -79,8 +79,9 @@ export default function SearchPage() {
     return (
         <div>
             <div className="treasureHuntBackground"></div>
-            <div className="treasureHuntLogo" style={style.treasureHuntLogo}></div>
-            <p style={style.title}>sandsearch.io</p>
+            <div className="searchBox" style={style.searchBox}></div>
+            <div className="tr"></div>
+            {/* <p style={style.title}>sandsearch.io</p> */}
             <Buttons />
             {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()} /> : null}
         </div>

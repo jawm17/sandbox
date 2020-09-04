@@ -19,10 +19,10 @@ export default function Popup(props) {
             backgroundColor: "rgba(0,0,0,0.6)", /* Black w/ opacity */
         },
         popup: {
-            marginTop: 30,
-            maxWIdth: 400,
+            marginTop: 20,
+            maxWidth: 600,
             width: "97vw",
-            height: "80vh",
+            height: "92vh",
             borderRadius: 5,
             backgroundColor: "white",
             transition: "all 0.3s ease-in-out",
@@ -32,8 +32,13 @@ export default function Popup(props) {
             backgroundColor: "lightblue"
         },
         img: {
-            width: 300,
-            height: 400
+            width: "100%",
+            height: 200,
+            borderTopLeftRadius: 5,
+            borderTopRightRadius: 5
+        },
+        close: {
+            float: "left"
         }
     }
 
@@ -42,7 +47,7 @@ export default function Popup(props) {
         setInitWidth(400);
         if (props.type === "eth") {
             if (props.amount) {
-                setMessage(`You've found ${props.amount} Ethereum`);
+                setMessage(`You've found ${props.amount} dsfad`);
             }
         }
     })
@@ -56,11 +61,11 @@ export default function Popup(props) {
             <div>
                 <div style={style.shaded}>
                     <div style={style.popup}>
+                        <img style={style.img} src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/SRsQjwFQMjby34s1c/videoblocks-falling-yellow-cryptocurrency-particles-bounce-bright-glowing-crypto-coin-symbols-like-bitcoin-ethereum-and-ripple-rain-on-dollar-and-euro-data-stream-abstract-3d-animation-futuristic-concept_saelf2v_t7_thumbnail-1080_12.png"></img>
+                        <div style={style.close} onClick={() => props.closeModal()}>x</div>
                         <div>
                             {message}
                         </div>
-                        <img style={style.img} src="https://www.thesun.co.uk/wp-content/uploads/2019/05/danny1.jpg"></img>
-                        <div onClick={() => props.closeModal()}>x</div>
                     </div>
                 </div>
             </div>

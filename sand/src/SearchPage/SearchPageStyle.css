@@ -57,6 +57,6 @@ table {
     height: 100vh;
 }
 
-.treasureHuntLogo:hover {
+.searchBox:hover {
     cursor: default;
 }
