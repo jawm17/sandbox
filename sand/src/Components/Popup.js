@@ -29,16 +29,30 @@ export default function Popup(props) {
             textAlign: "center",
             fontFamily: 'Fredoka One, cursive',
             fontSize: 40,
-            backgroundColor: "lightblue"
+            backgroundColor: "white"
         },
         img: {
             width: "100%",
-            height: 200,
+            height: 180,
             borderTopLeftRadius: 5,
             borderTopRightRadius: 5
         },
         close: {
-            float: "left"
+            position: "fixed",
+            top: 30
+        },
+        roundImg: {
+            position: "fixed",
+            left: "calc(50% - 50px)",
+            top: 120,
+            width: 100,
+            height: 100,
+            borderRadius: "50%",
+            borderWidth: 4,
+            borderStyle: "solid"
+        },
+        message: {
+            marginTop: 30
         }
     }
 
@@ -62,8 +76,9 @@ export default function Popup(props) {
                 <div style={style.shaded}>
                     <div style={style.popup}>
                         <img style={style.img} src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/SRsQjwFQMjby34s1c/videoblocks-falling-yellow-cryptocurrency-particles-bounce-bright-glowing-crypto-coin-symbols-like-bitcoin-ethereum-and-ripple-rain-on-dollar-and-euro-data-stream-abstract-3d-animation-futuristic-concept_saelf2v_t7_thumbnail-1080_12.png"></img>
+                        <img style={style.roundImg} src="https://ethereum.org/static/bfc04ac72981166c740b189463e1f74c/a7715/eth-diamond-black-white.jpg"></img>
                         <div style={style.close} onClick={() => props.closeModal()}>x</div>
-                        <div>
+                        <div style={style.message}>
                             {message}
                         </div>
                     </div>
