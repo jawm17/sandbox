@@ -1,0 +1,44 @@
+.roundImg {
+    position: fixed;
+    left: calc(50% - 50px);
+    top: 120px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.message {
+    margin-top: 30px;
+}
+
+.claimPrize {
+    width: 200px;
+    height: 45px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 30px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.claimPrize:hover {
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.claimPrize:active {
+    box-shadow: none;
+}
+
+.linkIcon {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+}
