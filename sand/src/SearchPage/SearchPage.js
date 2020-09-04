@@ -46,8 +46,8 @@ export default function SearchPage() {
             setLeft(125);
             setFontSize(30);
         // }
-        // window.addEventListener("touchmove", touchMove);
-        // window.addEventListener("touchStart", touchMove);
+        window.addEventListener("touchmove", touchMove);
+        window.addEventListener("touchStart", touchMove);
         window.addEventListener("mousemove", mouseMove);
         // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);

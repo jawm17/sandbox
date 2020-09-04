@@ -63,8 +63,8 @@ export default function Popup(props) {
             <div>
                 <div style={style.shaded}>
                     <div style={style.popup}>
-                        <img style={style.img} src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/SRsQjwFQMjby34s1c/videoblocks-falling-yellow-cryptocurrency-particles-bounce-bright-glowing-crypto-coin-symbols-like-bitcoin-ethereum-and-ripple-rain-on-dollar-and-euro-data-stream-abstract-3d-animation-futuristic-concept_saelf2v_t7_thumbnail-1080_12.png" alt="backdrop"></img>
-                        <img className="roundImg" src="https://ethereum.org/static/bfc04ac72981166c740b189463e1f74c/a7715/eth-diamond-black-white.jpg" alt="round photo"></img>
+                        <img style={style.img} src="https://image.freepik.com/free-vector/business-candle-stick-graph-chart-stock-market-investment-trading-blue-background_62391-93.jpg" alt="backdrop"></img>
+                        <img className="roundImg" src="https://pbs.twimg.com/profile_images/1122884534377357313/WVB5dcBa_400x400.png" alt="round photo"></img>
                         <div style={style.close} onClick={() => props.closeModal()}>x</div>
                         <div className="message">
                             {message}
