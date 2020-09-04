@@ -10,6 +10,7 @@ export default function SearchPage() {
     const [size, setSize] = useState(125);
     const [left, setLeft] = useState(170);
     const [fontSize, setFontSize] = useState(40);
+    const [mouse, setMouse] = useState(false);
     const [textbg, setTextbg] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721");
 
     const style = {
@@ -41,14 +42,14 @@ export default function SearchPage() {
     }
 
     useEffect(() => {
-        // if(window.innerWidth <= 600) {
-            setSize(80);
-            setLeft(125);
-            setFontSize(30);
-        // }
+        setSize(80);
+        setLeft(125);
+        setFontSize(30);
         window.addEventListener("touchmove", touchMove);
-        window.addEventListener("touchStart", touchMove);
+        window.addEventListener("touchstart", touchMove);
         window.addEventListener("mousemove", mouseMove);
+        window.addEventListener("mousedown", () => setMouse("down"));
+        window.addEventListener("mouseup", () => setMouse("up"));
         // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);
 
@@ -61,7 +62,16 @@ export default function SearchPage() {
             }
         }
     }
-    
+
+    if(mouse==="down") {
+        generateTrail();
+        // console.log("down" + mousePosition.x + mousePosition.y);
+    }
+
+    function generateTrail() {
+        console.log("generate");
+    }
+
     function mouseMove(e) {
         setMousePosition({ x: e.clientX, y: e.clientY });
         if (e.clientX > 155 && e.clientX <= 230) {
