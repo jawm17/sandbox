@@ -49,7 +49,7 @@ export default function Popup(props) {
         setInitWidth(400);
         if (props.type === "eth") {
             if (props.amount) {
-                setMessage(`You've found ${props.amount} dsfad`);
+                setMessage(`You've found 1 free stock!`);
             }
         }
     })
@@ -69,9 +69,11 @@ export default function Popup(props) {
                         <div className="message">
                             {message}
                         </div>
-                        <div className="claimPrize">
-                            Claim eth
+                        <div className="area">
+                            <div className="claimPrize" onClick={() => window.location.href = 'https://act.webull.com/mo/dAIYgeYXCzDD/ebe/inviteUs/'}>
+                                Claim prize
                             <img className="linkIcon" src="https://mymo-secure-content.s3.us-east-2.amazonaws.com/15992565776800.7710307302014743" alt="External link"></img>
+                            </div>
                         </div>
                     </div>
                 </div>
