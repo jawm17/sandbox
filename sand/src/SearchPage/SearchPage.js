@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Buttons from "../Components/Buttons";
 import Popup from "../Components/Popup";
 import "./SearchPageStyle.css";
@@ -10,8 +10,8 @@ export default function SearchPage() {
     const [size, setSize] = useState(125);
     const [left, setLeft] = useState(170);
     const [fontSize, setFontSize] = useState(40);
-    const [mouse, setMouse] = useState(false);
-    const [textbg, setTextbg] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721");
+    let textbg = "https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721";
+    let interval = useRef(null);
 
     const style = {
         searchBox: {
@@ -48,8 +48,7 @@ export default function SearchPage() {
         window.addEventListener("touchmove", touchMove);
         window.addEventListener("touchstart", touchMove);
         window.addEventListener("mousemove", mouseMove);
-        window.addEventListener("mousedown", () => setMouse("down"));
-        window.addEventListener("mouseup", () => setMouse("up"));
+        window.addEventListener("mousedown", generateTrails);
         // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);
 
@@ -63,13 +62,14 @@ export default function SearchPage() {
         }
     }
 
-    if(mouse==="down") {
-        generateTrail();
-        // console.log("down" + mousePosition.x + mousePosition.y);
-    }
-
-    function generateTrail() {
-        console.log("generate");
+    function generateTrails() {
+        let up = false;
+        window.addEventListener("mouseup", () => (up = true));
+        interval = setInterval(() => {
+            if (!up) {
+                console.log("success actually");
+            }
+        }, 10)
     }
 
     function mouseMove(e) {
@@ -91,7 +91,7 @@ export default function SearchPage() {
             <div className="treasureHuntBackground"></div>
             <div className="searchBox" style={style.searchBox}></div>
             <div className="tr"></div>
-            {/* <p style={style.title}>sandsearch.io</p> */}
+            {/* <p style={style.title}>{bubbles}</p> */}
             <Buttons />
             {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()} /> : null}
         </div>
