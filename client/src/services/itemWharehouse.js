@@ -2,7 +2,7 @@ export default {
     postItem: (item) => {
         return fetch('/item/newItem', {
             method: "post",
-            body: JSON.stringify(item),
+            body: JSON.stringify({ "link": item }),
             headers: {
                 'Content-Type': 'application/json'
             }

@@ -7,12 +7,12 @@ import HideSomething from './HideSomethingPage/HideSomething';
 function App() {
   return (
     <Router history={history}>
-      <Switch>
+
         <Route path="/">
           <SearchPage />
         </Route>
         <Route exact path="/hide" component={HideSomething} />
-      </Switch>
+
     </Router>
   );
 }

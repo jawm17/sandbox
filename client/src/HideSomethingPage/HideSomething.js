@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import itemWharehouse from "../services/itemWharehouse";
 import Buttons from "../Components/Buttons";
 import "./HideSomething.css";
 
 export default function HideSomething() {
     const [x, setX] = useState(1000);
     const [y, setY] = useState(-1000);
+    const [link, setLink] = useState("");
 
     const style = {
         title: {
@@ -37,13 +39,23 @@ export default function HideSomething() {
         setY(0);
     });
 
+    function inputChange(e) {
+        setLink(e.target.value);
+    }
+
+    function postItem() {
+        itemWharehouse.postItem(link);
+    }
+
     return (
         <div>
             <div style={style.background} className="blackBack">
-                <Buttons page="hide"/>
+                <Buttons page="hide" />
                 <div style={style.title}>
                     Hide Something
             </div>
+                <input onChange={(e) => inputChange(e)} value={link}/>
+                <button onClick={() => postItem()}>submit</button>
             </div>
         </div>
     );
