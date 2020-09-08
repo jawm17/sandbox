@@ -14,11 +14,12 @@ export default function SearchPage() {
     const [size, setSize] = useState(80);
     const [left, setLeft] = useState(125);
     const [fontSize, setFontSize] = useState(80);
+    const [itemAvailable, setItemAvailable] = useState(false);
     let interval = useRef(null);
 
     const style = {
         searchBox: {
-            background: "url(https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721)",
+            background: "url(https://pbs.twimg.com/media/EXMInTxXkAAaWjC.jpg)",
             backgroundSize: "200vw 200vh",
             backgroundColor: "gray",
             backgroundPositionX: xCoor,
@@ -46,10 +47,10 @@ export default function SearchPage() {
 
     useEffect(() => {
         getPrize();
-        document.getElementById("bg").addEventListener("touchmove", touchMove);
-        document.getElementById("bg").addEventListener("touchstart", touchMove);
-        document.getElementById("bg").addEventListener("mousemove", mouseMove);
-        document.getElementById("bg").addEventListener("mousedown", () => mouseDown());
+        document.getElementById("detectionZone").addEventListener("touchmove", touchMove);
+        document.getElementById("detectionZone").addEventListener("touchstart", touchMove);
+        document.getElementById("detectionZone").addEventListener("mousemove", mouseMove);
+        document.getElementById("detectionZone").addEventListener("mousedown", () => mouseDown());
     }, []);
 
     function touchMove(e) {
@@ -74,21 +75,24 @@ export default function SearchPage() {
 
     function mouseDown() {
         let up = false;
+        let e = "";
         window.addEventListener("mouseup", () => (up = true));
+        document.getElementById("detectionZone").addEventListener("mousemove", (event) => (e = event));
         interval = setInterval(() => {
             if (!up) {
-                generateTrail();
+                generateTrail(e);
             }
         }, 40)
     }
 
-    function generateTrail() {
-        console.log("New bubble");
-        const bubble = document.createElement("img");
-        let pos = 40;
-        bubble.style.cssText = `width: 40px; height: 40px; position: fixed; top:${pos}px; left:${40}`;
-        bubble.setAttribute("src", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7591f280-3969-4c42-b8e1-703a45165c68/ddnkzl5-412e01ae-7de3-4d18-909f-4582acd227af.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU5MWYyODAtMzk2OS00YzQyLWI4ZTEtNzAzYTQ1MTY1YzY4XC9kZG5remw1LTQxMmUwMWFlLTdkZTMtNGQxOC05MDlmLTQ1ODJhY2QyMjdhZi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7DXQ-zA4Cr-9NCMI0jsN8Ai8S81WUT1DJMS-tOm-HyQ");
-        document.getElementById("bg").appendChild(bubble);
+    function generateTrail(e) {
+        if (e) {
+            const bubble = document.createElement("img");
+            bubble.style.cssText = `width: 40px; height: 40px; position: fixed; top:${e.clientY}px; left:${e.clientX}px`;
+            bubble.setAttribute("src", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7591f280-3969-4c42-b8e1-703a45165c68/ddnkzl5-412e01ae-7de3-4d18-909f-4582acd227af.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU5MWYyODAtMzk2OS00YzQyLWI4ZTEtNzAzYTQ1MTY1YzY4XC9kZG5remw1LTQxMmUwMWFlLTdkZTMtNGQxOC05MDlmLTQ1ODJhY2QyMjdhZi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7DXQ-zA4Cr-9NCMI0jsN8Ai8S81WUT1DJMS-tOm-HyQ");
+            bubble.setAttribute("class", "bubble");
+            document.getElementById("detectionZone").appendChild(bubble);
+        }
     }
 
     function getPrize() {
@@ -106,6 +110,7 @@ export default function SearchPage() {
                                 "heroImg": document[i].heroImg,
                                 "mainImg": document[i].mainImg
                             });
+                            setItemAvailable(true);
                             return;
                         }
                     }
@@ -122,17 +127,18 @@ export default function SearchPage() {
 
     function closeModal() {
         setDiscovery(false);
+        setItemAvailable(false);
         setItemObject({});
         getPrize();
     }
 
     return (
         <div>
-            <div id="bg" className="treasureHuntBackground"></div>
+            <div id="detectionZone" className="detectionZone"></div>
             <div className="searchBox" style={style.searchBox}></div>
             <div className="tr"></div>
             <Buttons />
-            {discovery ? <Popup info={itemObject} closeModal={() => closeModal()} /> : null}
+            {discovery && itemAvailable ? <Popup info={itemObject} closeModal={() => closeModal()} /> : null}
         </div>
     );
 }   

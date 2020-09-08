@@ -46,13 +46,14 @@ table {
 	border-spacing: 0;
 }
 
-
 /* Main Styling */
-.treasureHuntBackground:hover {
+.detectionZone:hover {
     cursor: pointer;
 }
 
-.treasureHuntBackground {
+.detectionZone {
+	position: fixed;
+	z-index: 5;
     width: 100vw;
     height: 100vh;
 }
@@ -60,3 +61,11 @@ table {
 .searchBox:hover {
     cursor: default;
 }
+
+.bubble {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+} 

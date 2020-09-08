@@ -3,13 +3,7 @@ import history from '../history';
 import "./ButtonsStyle.css";
 
 export default function Buttons(props) {
-
-    useEffect(() => {
-        if (props.page === "hide") {
-
-        }
-    });
-
+    
     if (props.page === "hide") {
         return (
             <div className="buttons">
