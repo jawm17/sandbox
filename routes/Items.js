@@ -4,10 +4,10 @@ const Item = require('../models/Item');
 
 // create new item
 itemRouter.post('/newItem', (req, res) => {
-    const { link } = req.body;
+    const { itemName, quantity, link, heroImg, mainImg } = req.body;
     const message = { msgBody: "Error has occured", msgError: true };
 
-    const newItem = new Item({ link });
+    const newItem = new Item({ itemName, quantity, link, heroImg, mainImg });
     newItem.save(err => {
         if (err)
             res.status(500).json({ message });

@@ -56,11 +56,9 @@ export default function Popup(props) {
     useEffect(() => {
         setInitHeight(350);
         setInitWidth(400);
-        if (props.type === "eth") {
-            if (props.amount) {
-                setMessage(`You've found 1 free stonk!!!`);
-            }
-        }
+        console.log(props.info.id);
+        setMessage(`You found ${props.info.quantity} ${props.info.itemName}`);
+        
     });
 
     return (
@@ -68,14 +66,14 @@ export default function Popup(props) {
             <div style={style.shaded}>
                 <div style={style.flexArea}>
                     <div style={style.popup}>
-                        <img style={style.img} src="https://image.freepik.com/free-vector/business-candle-stick-graph-chart-stock-market-investment-trading-blue-background_62391-93.jpg" alt="backdrop"></img>
-                        <img className="roundImg" src="https://pbs.twimg.com/profile_images/1122884534377357313/WVB5dcBa_400x400.png" alt="round photo"></img>
+                        <img style={style.img} src={props.info.heroImg} alt="backdrop"></img>
+                        <img className="roundImg" src={props.info.mainImg} alt="round photo"></img>
                         <img className="closeIcon" style={style.close} onClick={() => props.closeModal()} src="https://logodix.com/logo/1355943.png" alt="close icon"></img>
                         <div className="message">
                             {message}
                         </div>
                         <div className="area">
-                            <div className="claimPrize" onClick={() => window.location.href = 'https://act.webull.com/mo/dAIYgeYXCzDD/ebe/inviteUs/'}>
+                            <div className="claimPrize" onClick={() => window.location.href = props.info.link}>
                                 Claim prize
                             <img className="linkIcon" src="https://mymo-secure-content.s3.us-east-2.amazonaws.com/15992565776800.7710307302014743" alt="External link"></img>
                             </div>

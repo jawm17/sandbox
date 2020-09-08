@@ -6,12 +6,15 @@ import "./HideSomething.css";
 export default function HideSomething() {
     const [x, setX] = useState(1000);
     const [y, setY] = useState(-1000);
+    const [itemName, setItemName] = useState("");
+    const [quantity, setQuantity] = useState(1);
     const [link, setLink] = useState("");
+    const [heroImg, setHeroImg] = useState("");
+    const [mainImg, setMainImg] = useState("");
 
     const style = {
         title: {
             fontFamily: 'Fredoka One, cursive',
-            // background: `url(https://www.cottodeste.us/media/immagini/185_n_COTTODESTE-BLACK-WHITE-black-minimale.jpg)`,
             backgroundRepeat: "no-repeat",
             backgroundPositionX: x,
             backgroundPositionY: y,
@@ -19,8 +22,6 @@ export default function HideSomething() {
             fontSize: 45,
             marginLeft: 30,
             marginTop: 70,
-            // WebkitTextFillColor: "transparent",
-            // WebkitBackgroundClip: "text",
             transition: "all 0.5s ease-in-out",
             color: "white"
         },
@@ -40,11 +41,27 @@ export default function HideSomething() {
     });
 
     function inputChange(e) {
-        setLink(e.target.value);
+        switch (e.target.className) {
+            case "itemName":
+                setItemName(e.target.value);
+                break;
+            case "quantity":
+                setQuantity(e.target.value);
+            case "link":
+                setLink(e.target.value);
+                break;
+            case "heroImg":
+                setHeroImg(e.target.value);
+                break;
+            default:
+                setMainImg(e.target.value);
+        }
     }
 
     function postItem() {
-        itemWharehouse.postItem(link);
+        if(itemName && quantity && link && heroImg && mainImg) {
+            itemWharehouse.postItem(itemName, quantity, link, heroImg, mainImg);
+        }
     }
 
     return (
@@ -54,7 +71,11 @@ export default function HideSomething() {
                 <div style={style.title}>
                     Hide Something
             </div>
-                <input onChange={(e) => inputChange(e)} value={link} />
+                <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
+                <input className="quantity" onChange={(e) => inputChange(e)} value={quantity} />
+                <input className="link" onChange={(e) => inputChange(e)} value={link} />
+                <input className="heroImg" onChange={(e) => inputChange(e)} value={heroImg} />
+                <input className="mainImg" onChange={(e) => inputChange(e)} value={mainImg} />
                 <button onClick={() => postItem()}>submit</button>
             </div>
         </div>
