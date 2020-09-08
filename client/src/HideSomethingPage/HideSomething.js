@@ -54,7 +54,7 @@ export default function HideSomething() {
                 <div style={style.title}>
                     Hide Something
             </div>
-                <input onChange={(e) => inputChange(e)} value={link}/>
+                <input onChange={(e) => inputChange(e)} value={link} />
                 <button onClick={() => postItem()}>submit</button>
             </div>
         </div>

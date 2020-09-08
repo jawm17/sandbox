@@ -50,33 +50,16 @@ export default function SearchPage() {
         window.addEventListener("touchmove", touchMove);
         window.addEventListener("touchstart", touchMove);
         window.addEventListener("mousemove", mouseMove);
-        window.addEventListener("mousedown", generateTrails(bubbles));
+        window.addEventListener("mousedown", () => mouseDown());
         // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);
 
-    function touchMove(e) {
-        setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-        if (e.touches[0].clientX > 155 && e.touches[0].clientX <= 230) {
-            if (e.touches[0].clientY > 262 && e.touches[0].clientY <= 334) {
-                setDiscoverMade(true);
-                // setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
-            }
-        }
-    }
-
-    function generateTrails(bubs) {
+    function mouseDown() {
         let up = false;
         window.addEventListener("mouseup", () => (up = true));
         interval = setInterval(() => {
             if (!up) {
-                console.log("success actually");
-                setBubbles([
-                    ...bubs,
-                    {
-                      positionX: mousePosition.x,
-                      positionY: mousePosition.y
-                    }
-                  ]);
+                generateTrail();
             }
         }, 40)
     }
@@ -86,9 +69,21 @@ export default function SearchPage() {
         if (e.clientX > 155 && e.clientX <= 230) {
             if (e.clientY > 262 && e.clientY <= 334) {
                 setDiscoverMade(true);
-                // setTextbg("https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg");
             }
         }
+    }
+
+    function touchMove(e) {
+        setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        if (e.touches[0].clientX > 155 && e.touches[0].clientX <= 230) {
+            if (e.touches[0].clientY > 262 && e.touches[0].clientY <= 334) {
+                setDiscoverMade(true);
+            }
+        }
+    }
+
+    function generateTrail() {
+        console.log("success actually");
     }
 
     function closeModal() {
@@ -103,7 +98,7 @@ export default function SearchPage() {
             {/* <p style={style.title}>{bubbles}</p> */}
             <Buttons />
             {bubbles.map(bubble => {
-                   return <Bubble positionX={mousePosition.x} positionY={mousePosition.Y}/> ;
+                return <Bubble positionX={mousePosition.x} positionY={mousePosition.Y} />;
             })}
             {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()} /> : null}
         </div>

@@ -6,9 +6,9 @@ export default function Bubble(props) {
     const style = {
         bubble: {
             position: "fixed",
-            
-            left: (40 + props.positionX / 100),
-            top: (40 + props.positionY / 100),
+
+            left: (40),
+            top: (40),
             width: dim,
             height: dim
         }
