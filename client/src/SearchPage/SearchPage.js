@@ -95,15 +95,20 @@ export default function SearchPage() {
         itemWharehouse.getItems().then(data => {
             const { message, document } = data;
             if (!message) {
-                if (document[0] && !document[0].discovered) {
-                    setItemObject({
-                        "id": document[0]._id,
-                        "itemName": document[0].itemName,
-                        "quantity": document[0].quantity,
-                        "link": document[0].link,
-                        "heroImg": document[0].heroImg,
-                        "mainImg": document[0].mainImg
-                    });
+                if (document[0]) {
+                    for (var i = 0; i < document.length; i++) {
+                        if (!document[i].discovered) {
+                            setItemObject({
+                                "id": document[i]._id,
+                                "itemName": document[i].itemName,
+                                "quantity": document[i].quantity,
+                                "link": document[i].link,
+                                "heroImg": document[i].heroImg,
+                                "mainImg": document[i].mainImg
+                            });
+                            return;
+                        }
+                    }
                 }
             } else {
                 console.log("Error Occured");
@@ -117,6 +122,7 @@ export default function SearchPage() {
 
     function closeModal() {
         setDiscovery(false);
+        setItemObject({});
         getPrize();
     }
 
