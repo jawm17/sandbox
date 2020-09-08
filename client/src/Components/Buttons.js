@@ -24,7 +24,7 @@ export default function Buttons(props) {
     } else {
         return (
             <div className="buttons">
-                <div className="buttonArea" onClick={() => history.push("/hide")}>
+                <div className="buttonArea" onClick={() => window.location = ("/hide")}>
                     <div className="hideSomething"></div>
                 </div>
                 <div className="info"></div>

@@ -14,15 +14,14 @@ export default {
                 return { message: { msgBody: "Unauthorized" }, msgError: true };
         });
     },
-    // getUserPosts: () => {
-    //     return fetch('/user/posts')
-    //         .then(response => {
-    //             if (response.status !== 401) {
-    //                 return response.json().then(data => data);
-    //             }
-    //             else
-    //                 return { message: { msgBody: "Unauthorized", msgError: true } };
-    //         });
-    // },
-
+    getItems: () => {
+        return fetch('/item/getItem')
+            .then(response => {
+                if (response.status !== 401) {
+                    return response.json().then(data => data);
+                }
+                else
+                    return { message: { msgBody: "Unauthorized", msgError: true } };
+            });
+    },
 }
