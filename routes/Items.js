@@ -30,4 +30,17 @@ itemRouter.get('/getItem', (req, res) => {
     });
 });
 
+// set item's discovered property to true
+itemRouter.post('/setDiscovered', (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    Item.findOneAndUpdate({ "_id": req.body.id }, { discovered: true }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(201).json({ message: { msgBody: "Item found", msgError: false } });
+        }
+    });
+});
+
 module.exports = itemRouter;

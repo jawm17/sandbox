@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import itemWharehouse from "../services/itemWharehouse";
 import "./PopupStyle.css";
 
 export default function Popup(props) {
@@ -58,8 +59,14 @@ export default function Popup(props) {
         setInitWidth(400);
         console.log(props.info.id);
         setMessage(`You found ${props.info.quantity} ${props.info.itemName}`);
-        
-    });
+        updateItem();
+    }, []);
+
+    function updateItem() {
+        itemWharehouse.setDiscovered(props.info.id).then(data => {
+            console.log(data);
+        });
+    }
 
     return (
         <div>

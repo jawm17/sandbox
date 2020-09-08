@@ -11,9 +11,9 @@ export default function SearchPage() {
     const [xCoor, setXCoor] = useState();
     const [yCoor, setYCoor] = useState();
     const [discovery, setDiscovery] = useState(false);
-    const [size, setSize] = useState(125);
-    const [left, setLeft] = useState(170);
-    const [fontSize, setFontSize] = useState(40);
+    const [size, setSize] = useState(80);
+    const [left, setLeft] = useState(125);
+    const [fontSize, setFontSize] = useState(80);
     let interval = useRef(null);
 
     const style = {
@@ -45,11 +45,7 @@ export default function SearchPage() {
     }
 
     useEffect(() => {
-        setSize(80);
-        setLeft(125);
-        setFontSize(30);
         getPrize();
-        console.log("n");
         document.getElementById("bg").addEventListener("touchmove", touchMove);
         document.getElementById("bg").addEventListener("touchstart", touchMove);
         document.getElementById("bg").addEventListener("mousemove", mouseMove);
@@ -65,7 +61,6 @@ export default function SearchPage() {
             }
         }
     }
-
 
     function mouseMove(e) {
         setXCoor(e.clientX);
@@ -100,7 +95,7 @@ export default function SearchPage() {
         itemWharehouse.getItems().then(data => {
             const { message, document } = data;
             if (!message) {
-                if(document[0] && !document[0].discovered) {
+                if (document[0] && !document[0].discovered) {
                     setItemObject({
                         "id": document[0]._id,
                         "itemName": document[0].itemName,
@@ -122,6 +117,7 @@ export default function SearchPage() {
 
     function closeModal() {
         setDiscovery(false);
+        getPrize();
     }
 
     return (

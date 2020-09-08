@@ -59,8 +59,10 @@ export default function HideSomething() {
     }
 
     function postItem() {
-        if(itemName && quantity && link && heroImg && mainImg) {
-            itemWharehouse.postItem(itemName, quantity, link, heroImg, mainImg);
+        if (itemName && quantity && link && heroImg && mainImg) {
+            itemWharehouse.postItem(itemName, quantity, link, heroImg, mainImg).then(data => {
+                console.log(data.message);
+            });
         }
     }
 
