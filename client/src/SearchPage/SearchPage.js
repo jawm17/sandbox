@@ -7,17 +7,17 @@ import "./SearchPageStyle.css";
 
 export default function SearchPage() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+    const [xCoor, setXCoor] = useState();
+    const [yCoor, setYCoor] = useState();
     const [discoveryMade, setDiscoverMade] = useState(false);
     const [size, setSize] = useState(125);
     const [left, setLeft] = useState(170);
     const [fontSize, setFontSize] = useState(40);
-    const [bubbles, setBubbles] = useState([]);
-    let textbg = "https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721";
     let interval = useRef(null);
 
     const style = {
         searchBox: {
-            background: `url(${textbg})`,
+            background: "url(https://mymo-secure-content.s3.us-east-2.amazonaws.com/15989309663050.7647081174685721)",
             backgroundSize: "200vw 200vh",
             backgroundColor: "gray",
             backgroundPositionX: mousePosition.x,
@@ -65,7 +65,8 @@ export default function SearchPage() {
     }
 
     function mouseMove(e) {
-        setMousePosition({ x: e.clientX, y: e.clientY });
+        setXCoor(e.clientX);
+        setYCoor(e.clientY);
         if (e.clientX > 155 && e.clientX <= 230) {
             if (e.clientY > 262 && e.clientY <= 334) {
                 setDiscoverMade(true);
@@ -83,7 +84,12 @@ export default function SearchPage() {
     }
 
     function generateTrail() {
-        console.log("success actually");
+        console.log(xCoor);
+        const bubble = document.createElement("img");
+
+        bubble.style.cssText = `width: 40px; height: 40px; position: fixed; top:${mousePosition.y}; left:${40}`; 
+        bubble.setAttribute("src", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7591f280-3969-4c42-b8e1-703a45165c68/ddnkzl5-412e01ae-7de3-4d18-909f-4582acd227af.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU5MWYyODAtMzk2OS00YzQyLWI4ZTEtNzAzYTQ1MTY1YzY4XC9kZG5remw1LTQxMmUwMWFlLTdkZTMtNGQxOC05MDlmLTQ1ODJhY2QyMjdhZi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7DXQ-zA4Cr-9NCMI0jsN8Ai8S81WUT1DJMS-tOm-HyQ");
+        document.getElementById("bg").appendChild(bubble);
     }
 
     function closeModal() {
@@ -92,14 +98,10 @@ export default function SearchPage() {
 
     return (
         <div>
-            <div className="treasureHuntBackground"></div>
+            <div id="bg" className="treasureHuntBackground"></div>
             <div className="searchBox" style={style.searchBox}></div>
             <div className="tr"></div>
-            {/* <p style={style.title}>{bubbles}</p> */}
             <Buttons />
-            {bubbles.map(bubble => {
-                return <Bubble positionX={mousePosition.x} positionY={mousePosition.Y} />;
-            })}
             {discoveryMade ? <Popup type="eth" amount="0.05" closeModal={() => closeModal()} /> : null}
         </div>
     );
