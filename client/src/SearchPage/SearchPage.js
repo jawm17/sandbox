@@ -55,7 +55,7 @@ export default function SearchPage() {
         document.getElementById("detectionZone").addEventListener("mousedown", () => mouseDown());
         interval = setInterval(() => {
             updateTrails();
-        }, 10)
+        }, 20)
     }, []);
 
     function touchMove(e) {
@@ -100,12 +100,9 @@ export default function SearchPage() {
             const top = (e.clientY - size / 2);
             const left = (e.clientX - size / 2);
             const direction = Math.random() <= .5 ? -1 : 1;
-
             const bubble = document.createElement("img");
-            console.log(top);
-
             bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px; transform: rotate(${spinVal}deg);`);
-            bubble.setAttribute("src", "https://www.pngkit.com/png/full/6-69156_download-whatsapp-emoticons-pack-the-emoji-iphone-rainbow.png");
+            bubble.setAttribute("src", "https://vignette.wikia.nocookie.net/minecraft/images/4/43/SandNew.png/revision/latest?cb=20190910000231");
             bubble.setAttribute("class", "bubble");
             if (document.getElementById("detectionZone") != null) {
                 document.getElementById("detectionZone").appendChild(bubble);
@@ -127,17 +124,18 @@ export default function SearchPage() {
 
     function updateTrails() {
         particles.forEach((p) => {
-            console.log(p.top);
+            // update propeties
             p.left = p.left - (p.speedHorz * p.direction);
             p.top = p.top - p.speedUp;
             p.speedUp = Math.min(p.size, p.speedUp - 1);
             p.spinVal = p.spinVal + p.spinSpeed;
 
+            // check if particle has gone off screen
             if (p.top >= height + p.size) {
                 particles = particles.filter((o) => o !== p);
                 p.element.remove();
             }
-
+            // enter properties
             p.element.setAttribute("style", `
                 position: fixed;
                 top: ${p.top}px;
@@ -146,7 +144,6 @@ export default function SearchPage() {
                 heigth: ${p.size}px;
                 transition: position 0.3s;
                 transform:rotate(${p.spinVal}deg);
-
             `);
         });
     }

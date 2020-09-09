@@ -5,6 +5,7 @@ import "./PopupStyle.css";
 export default function Popup(props) {
     const [initHeight, setInitHeight] = useState(10);
     const [initWidth, setInitWidth] = useState(10);
+    const [left, setLeft] = useState(-50);
     const [message, setMessage] = useState("");
 
     const style = {
@@ -48,9 +49,9 @@ export default function Popup(props) {
             borderTopRightRadius: 5
         },
         close: {
-            position: "absolute",
+            position: "fixed",
             top: 30,
-            left: 18,
+            left: left,
             width: 20,
             height: 20
         }
@@ -62,6 +63,7 @@ export default function Popup(props) {
         console.log(props.info.id);
         setMessage(`You found ${props.info.quantity} ${props.info.itemName}`);
         updateItem();
+        setLeft(document.getElementById("popup").getBoundingClientRect().left);
     }, []);
 
     function updateItem() {
@@ -74,10 +76,10 @@ export default function Popup(props) {
         <div>
             <div style={style.shaded}>
                 <div style={style.flexArea}>
-                    <div style={style.popup}>
+                    <div id="popup" style={style.popup}>
                         <img style={style.img} src={props.info.heroImg} alt="backdrop"></img>
                         <img className="roundImg" src={props.info.mainImg} alt="round photo"></img>
-                        <img className="closeIcon" style={style.close} onClick={() => props.closeModal()} src="https://logodix.com/logo/1355943.png" alt="close icon"></img>
+                        <img className="closeIcon" style={style.close} onClick={() => props.closeModal()} src="https://lh3.googleusercontent.com/proxy/ZRnGOj8oaf0TrBGCtadSHhBfHXHipJELy1c5uK3ep1CeuY6tm9_jLB--ES0UQsSqQsUaE_77H27pX_02HW-Mt9PpwGDgKqAJAv9jRPSsrtKdo5PCPmN_VssGczvHo3ZfCMogiOuxZA" alt="close icon"></img>
                         <div className="message">
                             {message}
                         </div>
