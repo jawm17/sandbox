@@ -102,7 +102,7 @@ export default function SearchPage() {
             const direction = Math.random() <= .5 ? -1 : 1;
             const bubble = document.createElement("img");
             bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px; transform: rotate(${spinVal}deg);`);
-            bubble.setAttribute("src", "https://vignette.wikia.nocookie.net/minecraft/images/4/43/SandNew.png/revision/latest?cb=20190910000231");
+            bubble.setAttribute("src", "https://vignette.wikia.nocookie.net/lotr-minecraft-mod-exiles/images/3/3e/Diamond_ore_block.png/revision/latest/scale-to-width-down/340?cb=20160911172118");
             bubble.setAttribute("class", "bubble");
             if (document.getElementById("detectionZone") != null) {
                 document.getElementById("detectionZone").appendChild(bubble);

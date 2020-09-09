@@ -21,14 +21,13 @@ export default function HideSomething() {
             height: 60,
             fontSize: 45,
             marginLeft: 30,
-            marginTop: 70,
+            marginTop: 40,
             transition: "all 0.5s ease-in-out",
-            color: "white"
+            color: "black"
         },
         background: {
             height: "100vh",
             width: "100vw",
-            backgroundColor: "black",
             position: "fixed",
             top: 0,
             left: 0
@@ -72,6 +71,11 @@ export default function HideSomething() {
                 <Buttons page="hide" />
                 <div style={style.title}>
                     Hide Something
+            </div>
+            <div className="inputDiv">
+                <div> + add link</div>
+                <div> + add image</div>
+                <div> + add message</div>
             </div>
                 <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
                 <input className="quantity" onChange={(e) => inputChange(e)} value={quantity} />

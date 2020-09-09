@@ -1,6 +1,9 @@
-.hideTitle {
-    font-family: Fredoka One, cursive;
-    font-size: 45px;
-    margin-left: 5%;
-    margin-top: 40px;
+.inputDiv {
+    width: 90vw;
+    max-width: 400px;
+    height: 600px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightblue;
 }
