@@ -20,7 +20,6 @@ export default function SearchPage() {
     const style = {
         searchBox: {
             background: "url(https://pbs.twimg.com/media/EXMInTxXkAAaWjC.jpg)",
-            backgroundSize: "200vw 200vh",
             backgroundColor: "gray",
             backgroundPositionX: xCoor,
             backgroundPositionY: yCoor,
