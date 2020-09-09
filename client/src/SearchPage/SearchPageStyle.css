@@ -58,11 +58,19 @@ table {
 	height: 100vh;
 }
 
+.trailZone {
+	position: fixed;
+	z-index: 4;
+    width: 100vw;
+	height: 100vh;
+}
+
 .searchBox:hover {
     cursor: default;
 }
 
 .bubble {
+	transition: all 0.3s ease-in-out;
 	user-select: none;
 	-moz-user-select: none;
 	-khtml-user-select: none;

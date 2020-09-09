@@ -15,6 +15,9 @@ export default function SearchPage() {
     const [left, setLeft] = useState(125);
     const [fontSize, setFontSize] = useState(80);
     const [itemAvailable, setItemAvailable] = useState(false);
+    let particles = [];
+    let height = document.documentElement.clientHeight;
+    const sizes = [15, 20, 25, 35, 45];
     let interval = useRef(null);
 
     const style = {
@@ -41,7 +44,7 @@ export default function SearchPage() {
             bottom: 25,
             left: left,
             margin: 0,
-        }
+        },
     }
 
     useEffect(() => {
@@ -50,6 +53,9 @@ export default function SearchPage() {
         document.getElementById("detectionZone").addEventListener("touchstart", touchMove);
         document.getElementById("detectionZone").addEventListener("mousemove", mouseMove);
         document.getElementById("detectionZone").addEventListener("mousedown", () => mouseDown());
+        interval = setInterval(() => {
+            updateTrails();
+        }, 10)
     }, []);
 
     function touchMove(e) {
@@ -78,7 +84,7 @@ export default function SearchPage() {
         window.addEventListener("mouseup", () => (up = true));
         document.getElementById("detectionZone").addEventListener("mousemove", (event) => (e = event));
         interval = setInterval(() => {
-            if (!up) {
+            if (!up && particles.length < 35) {
                 generateTrail(e);
             }
         }, 40)
@@ -86,14 +92,63 @@ export default function SearchPage() {
 
     function generateTrail(e) {
         if (e) {
+            const size = sizes[Math.floor(Math.random() * sizes.length)];
+            const speedHorz = Math.random() * 10;
+            const speedUp = Math.random() * 25;
+            const spinVal = Math.random() * 360;
+            const spinSpeed = ((Math.random() * 35)) * (Math.random() <= .5 ? -1 : 1);
+            const top = (e.clientY - size / 2);
+            const left = (e.clientX - size / 2);
+            const direction = Math.random() <= .5 ? -1 : 1;
+
             const bubble = document.createElement("img");
-            bubble.style.cssText = `width: 40px; height: 40px; position: fixed; top:${e.clientY}px; left:${e.clientX}px`;
-            bubble.setAttribute("src", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7591f280-3969-4c42-b8e1-703a45165c68/ddnkzl5-412e01ae-7de3-4d18-909f-4582acd227af.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU5MWYyODAtMzk2OS00YzQyLWI4ZTEtNzAzYTQ1MTY1YzY4XC9kZG5remw1LTQxMmUwMWFlLTdkZTMtNGQxOC05MDlmLTQ1ODJhY2QyMjdhZi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7DXQ-zA4Cr-9NCMI0jsN8Ai8S81WUT1DJMS-tOm-HyQ");
+            console.log(top);
+
+            bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px; transform: rotate(${spinVal}deg);`);
+            bubble.setAttribute("src", "https://www.pngkit.com/png/full/6-69156_download-whatsapp-emoticons-pack-the-emoji-iphone-rainbow.png");
             bubble.setAttribute("class", "bubble");
-            if(document.getElementById("detectionZone") != null) {
+            if (document.getElementById("detectionZone") != null) {
                 document.getElementById("detectionZone").appendChild(bubble);
+                particles.push(
+                    {
+                        element: bubble,
+                        size,
+                        speedHorz,
+                        speedUp,
+                        spinVal,
+                        spinSpeed,
+                        top,
+                        left,
+                        direction,
+                    });
             }
         }
+    }
+
+    function updateTrails() {
+        particles.forEach((p) => {
+            console.log(p.top);
+            p.left = p.left - (p.speedHorz * p.direction);
+            p.top = p.top - p.speedUp;
+            p.speedUp = Math.min(p.size, p.speedUp - 1);
+            p.spinVal = p.spinVal + p.spinSpeed;
+
+            if (p.top >= height + p.size) {
+                particles = particles.filter((o) => o !== p);
+                p.element.remove();
+            }
+
+            p.element.setAttribute("style", `
+                position: fixed;
+                top: ${p.top}px;
+                left: ${p.left}px;
+                width: ${p.size}px;
+                heigth: ${p.size}px;
+                transition: position 0.3s;
+                transform:rotate(${p.spinVal}deg);
+
+            `);
+        });
     }
 
     function getPrize() {
@@ -138,7 +193,6 @@ export default function SearchPage() {
         <div>
             <div id="detectionZone" className="detectionZone"></div>
             <div className="searchBox" style={style.searchBox}></div>
-            <div className="tr"></div>
             <Buttons />
             {discovery && itemAvailable ? <Popup info={itemObject} closeModal={() => closeModal()} /> : null}
         </div>
