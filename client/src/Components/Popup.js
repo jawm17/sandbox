@@ -10,6 +10,7 @@ export default function Popup(props) {
     const style = {
         shaded: {
             position: "fixed",
+            zIndex: 40,
             width: "150vw",
             height: "150vh",
             top: -10,
@@ -19,12 +20,13 @@ export default function Popup(props) {
         },
         flexArea: {
             position: "fixed",
+            zIndex: 40,
             display: "flex",
             justifyContent: "center",
             width: "100vw",
             height: "100vh",
             top: 0,
-            left: 0,
+            left: 0
         },
         popup: {
             marginTop: 20,
