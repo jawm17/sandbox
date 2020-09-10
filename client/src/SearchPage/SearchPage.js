@@ -50,9 +50,9 @@ export default function SearchPage() {
     useEffect(() => {
         getPrize();
         document.getElementById("detectionZone").addEventListener("touchmove", touchMove);
-        document.getElementById("detectionZone").addEventListener("touchstart", touchMove);
+        document.getElementById("detectionZone").addEventListener("touchstart", () => mouseMove);
         document.getElementById("detectionZone").addEventListener("mousemove", mouseMove);
-        document.getElementById("detectionZone").addEventListener("mousedown", () => mouseDown());
+        document.getElementById("detectionZone").addEventListener("mousedown", (downEvent) => mouseDown(downEvent));
         interval = setInterval(() => {
             updateTrails();
         }, 20)
@@ -78,7 +78,7 @@ export default function SearchPage() {
         }
     }
 
-    function mouseDown() {
+    function mouseDown(downEvent) {
         let up = false;
         let e = "";
         window.addEventListener("mouseup", () => (up = true));
@@ -101,25 +101,24 @@ export default function SearchPage() {
             const left = (e.clientX - size / 2);
             const direction = Math.random() <= .5 ? -1 : 1;
             const bubble = document.createElement("img");
-            bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px; transform: rotate(${spinVal}deg);`);
-            bubble.setAttribute("src", "https://vignette.wikia.nocookie.net/lotr-minecraft-mod-exiles/images/3/3e/Diamond_ore_block.png/revision/latest/scale-to-width-down/340?cb=20160911172118");
+            bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px;`);
+            bubble.setAttribute("src", "https://cdn.pixabay.com/photo/2014/04/02/14/06/point-306186_1280.png");
             bubble.setAttribute("class", "bubble");
-            if (document.getElementById("detectionZone") != null) {
-                document.getElementById("detectionZone").appendChild(bubble);
-                particles.push(
-                    {
-                        element: bubble,
-                        size,
-                        speedHorz,
-                        speedUp,
-                        spinVal,
-                        spinSpeed,
-                        top,
-                        left,
-                        direction,
-                    });
-            }
-        }
+            document.getElementById("detectionZone").appendChild(bubble);
+            particles.push(
+                {
+                    element: bubble,
+                    size,
+                    speedHorz,
+                    speedUp,
+                    spinVal,
+                    spinSpeed,
+                    top,
+                    left,
+                    direction,
+                });
+
+        } else return;
     }
 
     function updateTrails() {
@@ -143,7 +142,7 @@ export default function SearchPage() {
                 width: ${p.size}px;
                 heigth: ${p.size}px;
                 transition: position 0.3s;
-                transform:rotate(${p.spinVal}deg);
+
             `);
         });
     }

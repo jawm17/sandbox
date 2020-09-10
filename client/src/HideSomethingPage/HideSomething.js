@@ -73,9 +73,10 @@ export default function HideSomething() {
                     Hide Something
             </div>
             <div className="inputDiv">
-                <div> + add link</div>
-                <div> + add image</div>
-                <div> + add message</div>
+                $0.25 per item
+                <div className="attachment"> + add link</div>
+                <div className="attachment"> + add image</div>
+                <div className="attachment"> + add message</div>
             </div>
                 <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
                 <input className="quantity" onChange={(e) => inputChange(e)} value={quantity} />
