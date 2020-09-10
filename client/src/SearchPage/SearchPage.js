@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import itemWharehouse from "../services/itemWharehouse";
 import Buttons from "../Components/Buttons";
 import Popup from "../Components/Popup";
-import Bubble from "../Components/Bubbly/Bubble";
 import "./SearchPageStyle.css";
 
 
@@ -11,12 +10,12 @@ export default function SearchPage() {
     const [xCoor, setXCoor] = useState();
     const [yCoor, setYCoor] = useState();
     const [discovery, setDiscovery] = useState(false);
-    const [size, setSize] = useState(80);
-    const [left, setLeft] = useState(125);
-    const [fontSize, setFontSize] = useState(80);
     const [itemAvailable, setItemAvailable] = useState(false);
+    let randomPoint;
+    let randomPoint2;
+    const [width, setWidth] = useState(document.documentElement.clientWidth);
+    const [height, setHeight] = useState(document.documentElement.clientHeight);
     let particles = [];
-    let height = document.documentElement.clientHeight;
     const sizes = [15, 20, 25, 35, 45];
     let interval = useRef(null);
 
@@ -29,8 +28,8 @@ export default function SearchPage() {
             fontFamily: 'Fredoka One, cursive',
             position: "fixed",
             fontSize: 225,
-            width: size,
-            height: size,
+            width: 80,
+            height: 80,
             borderRadius: 10,
             bottom: 20,
             left: 25,
@@ -40,23 +39,30 @@ export default function SearchPage() {
         title: {
             fontFamily: 'Fredoka One, cursive',
             position: "fixed",
-            fontSize: fontSize,
+            fontSize: 80,
             bottom: 25,
-            left: left,
+            left: 125,
             margin: 0,
         },
     }
 
     useEffect(() => {
-        getPrize();
         document.getElementById("detectionZone").addEventListener("touchmove", touchMove);
         document.getElementById("detectionZone").addEventListener("touchstart", () => mouseMove);
         document.getElementById("detectionZone").addEventListener("mousemove", mouseMove);
         document.getElementById("detectionZone").addEventListener("mousedown", (downEvent) => mouseDown(downEvent));
+        window.addEventListener("resize", setPoints);
         interval = setInterval(() => {
             updateTrails();
-        }, 20)
+        }, 20);
+        getPrize();
+        setPoints();
     }, []);
+
+    function setPoints() {
+        randomPoint = document.documentElement.clientWidth * Math.random();
+        randomPoint2 = document.documentElement.clientHeight * Math.random(); 
+    }
 
     function touchMove(e) {
         setXCoor(e.touches[0].clientX);
@@ -71,8 +77,9 @@ export default function SearchPage() {
     function mouseMove(e) {
         setXCoor(e.clientX);
         setYCoor(e.clientY);
-        if (e.clientX > 155 && e.clientX <= 230) {
-            if (e.clientY > 262 && e.clientY <= 334) {
+        console.log(randomPoint + "  " + randomPoint2)
+        if (e.clientX > randomPoint && e.clientX <= randomPoint + 15) {
+            if (e.clientY > randomPoint2 && e.clientY <= randomPoint2 + 15) {
                 discoveryMade();
             }
         }
@@ -176,6 +183,7 @@ export default function SearchPage() {
 
     function discoveryMade() {
         setDiscovery(true);
+        setPoints();
     }
 
     function closeModal() {
