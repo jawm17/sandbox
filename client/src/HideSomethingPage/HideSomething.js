@@ -76,7 +76,7 @@ export default function HideSomething() {
                 <div className="inputDiv">
                     <div className="priceTitle">
                         $0.25 per item
-                </div>
+                    </div>
                     <div className="attachment"> + add link</div>
                     <div className="attachment"> + add image</div>
                     <div className="attachment"> + add message</div>
