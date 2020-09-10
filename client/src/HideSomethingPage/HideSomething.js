@@ -23,12 +23,13 @@ export default function HideSomething() {
             marginLeft: 30,
             marginTop: 40,
             transition: "all 0.5s ease-in-out",
-            color: "black"
         },
         background: {
             height: "100vh",
             width: "100vw",
             position: "fixed",
+            display: "flex",
+            justifyContent: "center",
             top: 0,
             left: 0
         }
@@ -71,13 +72,15 @@ export default function HideSomething() {
                 <Buttons page="hide" />
                 <div style={style.title}>
                     Hide Something
-            </div>
-            <div className="inputDiv">
-                $0.25 per item
-                <div className="attachment"> + add link</div>
-                <div className="attachment"> + add image</div>
-                <div className="attachment"> + add message</div>
-            </div>
+                </div>
+                <div className="inputDiv">
+                    <div className="priceTitle">
+                        $0.25 per item
+                </div>
+                    <div className="attachment"> + add link</div>
+                    <div className="attachment"> + add image</div>
+                    <div className="attachment"> + add message</div>
+                </div>
                 <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
                 <input className="quantity" onChange={(e) => inputChange(e)} value={quantity} />
                 <input className="link" onChange={(e) => inputChange(e)} value={link} />

@@ -11,12 +11,22 @@
 .attachment {
     width: 200px;
     height: 45px;
-    border-radius: 30px;
+    /* border-radius: 30px;
     border-width: 0.2px;
     border-style: solid;
+    border-color: lightblue; */
     font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: lightblue;
+    color: #0000EE;
+}
+
+.attachment:hover {
+    color: blue;
+}
+
+.priceTitle {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
