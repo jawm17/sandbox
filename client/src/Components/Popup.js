@@ -3,8 +3,6 @@ import itemWharehouse from "../services/itemWharehouse";
 import "./PopupStyle.css";
 
 export default function Popup(props) {
-    const [initHeight, setInitHeight] = useState(10);
-    const [initWidth, setInitWidth] = useState(10);
     const [left, setLeft] = useState(-50);
     const [message, setMessage] = useState("");
 
@@ -58,8 +56,6 @@ export default function Popup(props) {
     };
 
     useEffect(() => {
-        setInitHeight(350);
-        setInitWidth(400);
         console.log(props.info.id);
         setMessage(`You found ${props.info.quantity} ${props.info.itemName}`);
         updateItem();
