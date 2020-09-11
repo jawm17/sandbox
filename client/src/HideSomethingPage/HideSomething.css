@@ -16,9 +16,6 @@
     border-style: solid;
     border-color: lightblue; */
     font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: lightblue;
 }
 
