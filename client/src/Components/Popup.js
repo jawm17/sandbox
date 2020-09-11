@@ -46,7 +46,7 @@ export default function Popup(props) {
             width: "100%",
             height: 180,
             borderTopLeftRadius: 5,
-            borderTopRightRadius: 5
+            borderTopRightRadius: 5,
         },
         close: {
             position: "fixed",
@@ -77,9 +77,11 @@ export default function Popup(props) {
             <div style={style.shaded}>
                 <div style={style.flexArea}>
                     <div id="popup" style={style.popup}>
-                        <img style={style.img} src={props.info.heroImg} alt="backdrop"></img>
+                        <div className="backdropArea">
+                            <img style={style.img} src={props.info.heroImg || "https://www.photohdx.com/images/2016/09/blue-technology-pattern-background.jpg"} alt="backdrop"></img>
+                        </div>
                         <img className="roundImg" src={props.info.mainImg} alt="round photo"></img>
-                        <img className="closeIcon" style={style.close} onClick={() => props.closeModal()} src="https://lh3.googleusercontent.com/proxy/ZRnGOj8oaf0TrBGCtadSHhBfHXHipJELy1c5uK3ep1CeuY6tm9_jLB--ES0UQsSqQsUaE_77H27pX_02HW-Mt9PpwGDgKqAJAv9jRPSsrtKdo5PCPmN_VssGczvHo3ZfCMogiOuxZA" alt="close icon"></img>
+                        <img className="closeIcon" style={style.close} onClick={() => props.closeModal()} src="https://www.flaticon.com/svg/static/icons/svg/1450/1450571.svg" alt="close icon"></img>
                         <div className="message">
                             {message}
                         </div>

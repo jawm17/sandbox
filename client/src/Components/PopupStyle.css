@@ -55,3 +55,11 @@
 .closeIcon:hover {
     cursor: pointer;
 }
+
+.backdropArea {
+    width: 100%;
+    height: 180px;
+    border-top-left-radius: 5;
+    border-top-right-radius: 5;
+    background-color: lightblue;
+}
