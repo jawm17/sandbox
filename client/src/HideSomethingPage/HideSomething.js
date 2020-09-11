@@ -18,7 +18,7 @@ export default function HideSomething() {
             backgroundRepeat: "no-repeat",
             backgroundPositionX: x,
             backgroundPositionY: y,
-            height: 60,
+            height: 80,
             fontSize: 45,
             marginLeft: 30,
             marginTop: 40,
@@ -60,23 +60,25 @@ export default function HideSomething() {
     return (
         <div>
             <Buttons page="hide" />
-            <div style={style.title}>
+            <p style={style.title}>
                 Hide Something
-            </div>
-            <div className="inputDiv">
-                <div className="priceTitle">
-                    $0.25 per item
+            </p>
+            <div className="flexDiv">
+                <div className="inputDiv">
+                    <div className="priceTitle">
+                        $0.25 per item
+                    </div>
+                    <div className="attachment"> + add link</div>
+                    <div className="attachment"> + add image</div>
+                    <div className="attachment"> + add message</div>
                 </div>
-                <div className="attachment"> + add link</div>
-                <div className="attachment"> + add image</div>
-                <div className="attachment"> + add message</div>
             </div>
-            <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
+            {/* <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
             <input className="quantity" onChange={(e) => inputChange(e)} value={quantity} />
             <input className="link" onChange={(e) => inputChange(e)} value={link} />
             <input className="heroImg" onChange={(e) => inputChange(e)} value={heroImg} />
             <input className="mainImg" onChange={(e) => inputChange(e)} value={mainImg} />
-            <button onClick={() => postItem()}>submit</button>
+            <button onClick={() => postItem()}>submit</button> */}
         </div>
     );
 }
