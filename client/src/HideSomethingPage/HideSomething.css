@@ -5,30 +5,71 @@
     border-radius: 20px;
     border-style: solid;
     border-width: 2px;
-    border-color: lightblue;
+    border-color: gray;
+    text-align: center;
 }
 
-.attachment {
-    width: 200px;
-    height: 45px;
+.attatchment {
+    margin-top: 40px;
     font-size: 15px;
+    font-family: 'Belgrano', serif;
     /* border-radius: 30px;
     border-width: 0.2px;
     border-style: solid;
     border-color: lightblue; */
 }
 
-.attachment:hover {
+.attatchment:hover {
     color: blue;
+    cursor: pointer;
 }
 
 .priceTitle {
     font-size: 20px;
     font-family: 'Belgrano', serif;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .flexDiv {
     width: 100vw;
     display: flex;
     justify-content: center;
+}
+
+.nextIcon {
+    width: 10px;
+    height: 10px;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.nextButton {
+    width: 140px;
+    height: 45px;
+    border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 330px;
+    float: right;
+    margin-right: 10px;
+    padding-bottom: 0;
+}
+
+.nextButton:hover {
+    border-color: blue;
+    color: blue;
+    cursor: pointer;
+}
+
+.nextButton:hover .nextIcon{
+    margin-left: 15px;
+}
+
+.nextButton:active {
+    box-shadow: none;
 }

@@ -68,9 +68,13 @@ export default function HideSomething() {
                     <div className="priceTitle">
                         $0.25 per item
                     </div>
-                    <div className="attachment"> + add link</div>
-                    <div className="attachment"> + add image</div>
-                    <div className="attachment"> + add message</div>
+                    <div className="attatchment"> + add link</div>
+                    <div className="attatchment"> + add image</div>
+                    <div className="attatchment"> + add message</div>
+                    <div className="nextButton" onClick={() => console.log()}>
+                        next
+                        <img className="nextIcon" src="https://www.flaticon.com/svg/static/icons/svg/709/709586.svg" alt="button image"></img>
+                    </div>
                 </div>
             </div>
             {/* <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
