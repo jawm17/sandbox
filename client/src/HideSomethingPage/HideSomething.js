@@ -68,10 +68,14 @@ export default function HideSomething() {
                     <div className="priceTitle">
                         How it works
                     </div>
+                    <div className="howItWorks">
+                        People hide stuff. people find stuff
+                         
+                    </div>
                 </div>
                 <div className="inputDiv">
                     <div className="priceTitle">
-                        $0.25 per item
+                        Hide Something
                     </div>
                     <div className="attatchment"> + add link</div>
                     <div className="attatchment"> + add image</div>
