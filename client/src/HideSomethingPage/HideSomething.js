@@ -66,6 +66,11 @@ export default function HideSomething() {
             <div className="flexDiv">
                 <div className="inputDiv">
                     <div className="priceTitle">
+                        How it works
+                    </div>
+                </div>
+                <div className="inputDiv">
+                    <div className="priceTitle">
                         $0.25 per item
                     </div>
                     <div className="attatchment"> + add link</div>

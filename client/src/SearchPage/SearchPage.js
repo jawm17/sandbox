@@ -142,14 +142,13 @@ export default function SearchPage() {
                 p.element.remove();
             }
             // enter properties
+            // transition: position 0.3s;
             p.element.setAttribute("style", `
                 position: fixed;
                 top: ${p.top}px;
                 left: ${p.left}px;
                 width: ${p.size}px;
                 heigth: ${p.size}px;
-                transition: position 0.3s;
-
             `);
         });
     }
