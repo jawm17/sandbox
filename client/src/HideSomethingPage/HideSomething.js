@@ -77,7 +77,7 @@ export default function HideSomething() {
                     <div className="priceTitle">
                         Hide Something
                     </div>
-                    <div className="attatchment"> + add link</div>
+                    <div className="attatchment" onClick={() => setLink(window.prompt("Link: "))}> + add link</div>
                     <div className="attatchment"> + add image</div>
                     <div className="attatchment"> + add message</div>
                     <div className="nextButton" onClick={() => console.log()}>
