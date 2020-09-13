@@ -12,21 +12,6 @@ export default function HideSomething() {
     const [heroImg, setHeroImg] = useState("");
     const [mainImg, setMainImg] = useState("");
 
-    const style = {
-        title: {
-            fontFamily: 'Fredoka One, cursive',
-            backgroundRepeat: "no-repeat",
-            backgroundPositionX: x,
-            backgroundPositionY: y,
-            height: 80,
-            fontSize: 45,
-            marginLeft: 60,
-            marginTop: 22,
-            transition: "all 0.5s ease-in-out",
-            color: "#e8f1f5"
-        }
-    }
-
     useEffect(() => {
         setX(0);
         setY(0);
@@ -61,7 +46,7 @@ export default function HideSomething() {
     return (
         <div className="hidePage">
             <div className="homeButton"></div>
-            <p className="title">
+            <p className="title" onClick={() => window.location = ("/")}>
                 Mouse Around
             </p>
             <div className="flexDiv">
