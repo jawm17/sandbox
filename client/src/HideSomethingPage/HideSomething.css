@@ -3,10 +3,11 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
+    text-align: center;
 }
 
 .flexDiv {
-    margin-top: 20px;
+    margin-top: 40px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -25,7 +26,7 @@
 }
 
 #about {
-    margin-right: 40px;
+    margin-right: 80px;
 }
 
 .attatchment {
@@ -40,10 +41,10 @@
 
 .title {
     font-family: Fredoka One, cursive;
-    height: 80px;
-    font-size: 45px;
-    margin-left: 20px;
-    margin-top: 22px;
+    font-size: 30px;
+    margin-right: 840px;
+    margin-top: 30px;
+
     color: #e8f1f5;
 }
 
