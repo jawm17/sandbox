@@ -60,7 +60,7 @@ export default function HideSomething() {
 
     return (
         <div className="hidePage">
-
+            <div className="homeButton"></div>
             <p className="title">
                 Mouse Around
             </p>
