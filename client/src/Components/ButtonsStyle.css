@@ -24,24 +24,16 @@
 }
 
 .findSomething {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 45px;
     height: 45px;
     position: fixed;
     right: 20px;
     top: 20px;
     border-radius: 2px;
-    background-color: white;
-}
-
-.info {
-    width: 45px;
-    height: 45px;
-    position: fixed;
-    right: 20px;
-    top: 70px;
-    border-radius: 2px;
-    margin-top: 10px;
-    background-color: blue;
+    background-color: #3f72af;
 }
 
 .hideSomething:hover {
@@ -74,9 +66,14 @@
     top: 20px;
 }
 
+.findSomething:active .searchIcon{
+    width: 20px;
+    height: 20px;
+}
+
 .searchIcon {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
 }
 
 

@@ -20,9 +20,10 @@ export default function HideSomething() {
             backgroundPositionY: y,
             height: 80,
             fontSize: 45,
-            marginLeft: 30,
-            marginTop: 40,
+            marginLeft: 60,
+            marginTop: 22,
             transition: "all 0.5s ease-in-out",
+            color: "#112d4e"
         }
     }
 
@@ -58,7 +59,7 @@ export default function HideSomething() {
     }
 
     return (
-        <div>
+        <div className="hidePage">
             <Buttons page="hide" />
             <p style={style.title}>
                 Mouse Around

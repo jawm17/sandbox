@@ -9,10 +9,9 @@ export default function Buttons(props) {
             <div className="buttons">
                 <div className="buttonArea" onClick={() => window.location = ("/")}>
                     <div className="findSomething">
-                        <img className="searchIcon" src="https://img.icons8.com/ios-glyphs/60/000000/search.png"/>
+                        <img className="searchIcon" src="https://mymo-secure-content.s3.us-east-2.amazonaws.com/ICON4.png"/>
                     </div>
                 </div>
-                <div className="info"></div>
             </div>
         );
     } else {
@@ -21,7 +20,6 @@ export default function Buttons(props) {
                 <div className="buttonArea" onClick={() => window.location = ("/hide")}>
                     <div className="hideSomething"></div>
                 </div>
-                <div className="info"></div>
             </div>
         );
     }
