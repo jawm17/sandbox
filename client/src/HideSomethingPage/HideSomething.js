@@ -61,7 +61,7 @@ export default function HideSomething() {
         <div>
             <Buttons page="hide" />
             <p style={style.title}>
-                Hide Something
+                Mouse Around
             </p>
             <div className="flexDiv">
                 <div className="inputDiv">
@@ -69,7 +69,7 @@ export default function HideSomething() {
                         How it works
                     </div>
                     <div className="howItWorks">
-                        People hide stuff. people find stuff
+                        People hide stuff. People find stuff. It's just that simple...
                          
                     </div>
                 </div>
