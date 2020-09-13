@@ -1,16 +1,16 @@
 .hidePage {
-    background-color: #dbe2ef;
+    background-color: #005691;
     position: fixed;
     width: 100vw;
     height: 100vh;
 }
 
 .flexDiv {
+    margin-top: 20px;
     width: 100vw;
     display: flex;
     justify-content: center;
 }
-
 
 .inputDiv {
     width: 90vw;
@@ -21,7 +21,11 @@
     border-width: 2px;
     border-color: gray; */
     text-align: center;
-    background-color: #f9f7f7;
+    background-color: #fafafa;
+}
+
+#about {
+    margin-right: 40px;
 }
 
 .attatchment {
@@ -32,6 +36,15 @@
     border-width: 0.2px;
     border-style: solid;
     border-color: lightblue; */
+}
+
+.title {
+    font-family: Fredoka One, cursive;
+    height: 80px;
+    font-size: 45px;
+    margin-left: 20px;
+    margin-top: 22px;
+    color: #e8f1f5;
 }
 
 .attatchment:hover {

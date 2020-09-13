@@ -23,7 +23,7 @@ export default function HideSomething() {
             marginLeft: 60,
             marginTop: 22,
             transition: "all 0.5s ease-in-out",
-            color: "#112d4e"
+            color: "#e8f1f5"
         }
     }
 
@@ -61,17 +61,16 @@ export default function HideSomething() {
     return (
         <div className="hidePage">
             <Buttons page="hide" />
-            <p style={style.title}>
+            <p className="title">
                 Mouse Around
             </p>
             <div className="flexDiv">
-                <div className="inputDiv">
+                <div id="about" className="inputDiv">
                     <div className="priceTitle">
                         How it works
                     </div>
                     <div className="howItWorks">
                         People hide stuff. People find stuff. It's just that simple...
-                         
                     </div>
                 </div>
                 <div className="inputDiv">
