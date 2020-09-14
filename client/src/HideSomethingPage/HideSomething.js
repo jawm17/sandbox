@@ -15,7 +15,7 @@ export default function HideSomething() {
     useEffect(() => {
         setX(0);
         setY(0);
-    });
+    }, []);
 
     function inputChange(e) {
         switch (e.target.className) {
