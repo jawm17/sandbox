@@ -45,10 +45,12 @@ export default function HideSomething() {
 
     return (
         <div className="hidePage">
-            <div className="homeButton"></div>
-            <p className="title" onClick={() => window.location = ("/")}>
-                Mouse Around
+            <div className="navBar">
+                <div className="homeButton"></div>
+                <p className="title" onClick={() => window.location = ("/")}>
+                    Mouse Around
             </p>
+            </div>
             <div className="flexDiv">
                 <div id="about" className="inputDiv">
                     <div className="priceTitle">

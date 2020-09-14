@@ -13,6 +13,11 @@
     justify-content: center;
 }
 
+.navBar {
+    height: 80px;
+    padding-top: 10px;
+}
+
 .inputDiv {
     width: 90vw;
     max-width: 500px;
@@ -43,7 +48,6 @@
     font-family: Fredoka One, cursive;
     font-size: 30px;
     margin-right: 840px;
-    margin-top: 30px;
     color: #e8f1f5;
 }
 
@@ -106,7 +110,6 @@
     align-items: center;
     width: 45px;
     height: 45px;
-    position: fixed;
     right: 70px;
     top: 25px;
     border-radius: 2px;
