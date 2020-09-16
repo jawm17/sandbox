@@ -73,12 +73,12 @@ export default function HideSomething() {
                     </div>
                 </div>
             </div>
-            {/* <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
+            <input className="itemName" onChange={(e) => inputChange(e)} value={itemName} />
             <input className="quantity" onChange={(e) => inputChange(e)} value={quantity} />
             <input className="link" onChange={(e) => inputChange(e)} value={link} />
             <input className="heroImg" onChange={(e) => inputChange(e)} value={heroImg} />
             <input className="mainImg" onChange={(e) => inputChange(e)} value={mainImg} />
-            <button onClick={() => postItem()}>submit</button> */}
+            <button onClick={() => postItem()}>submit</button>
         </div>
     );
 }

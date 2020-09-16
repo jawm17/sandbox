@@ -82,7 +82,7 @@ export default function Popup(props) {
                             {message}
                         </div>
                         <div className="area">
-                            <div className="claimPrize" onClick={() => window.location.href = props.info.link}>
+                            <div className="claimPrize" onClick={() => window.location.href = "https://" + props.info.link}>
                                 Claim prize
                             <img className="linkIcon" src="https://mymo-secure-content.s3.us-east-2.amazonaws.com/15992565776800.7710307302014743" alt="External link"></img>
                             </div>
