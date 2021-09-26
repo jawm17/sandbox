@@ -21,7 +21,7 @@ export default function SearchPage() {
 
     const style = {
         searchBox: {
-            background: "url(https://pbs.twimg.com/media/EXMInTxXkAAaWjC.jpg)",
+            background: "url(https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg)",
             backgroundColor: "gray",
             backgroundPositionX: xCoor,
             backgroundPositionY: yCoor,
@@ -109,7 +109,7 @@ export default function SearchPage() {
             const direction = Math.random() <= .5 ? -1 : 1;
             const bubble = document.createElement("img");
             bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px;`);
-            bubble.setAttribute("src", "https://cdn.pixabay.com/photo/2014/04/02/14/06/point-306186_1280.png");
+            bubble.setAttribute("src", "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/43675/white-circle-emoji-clipart-md.png");
             bubble.setAttribute("class", "bubble");
             document.getElementById("detectionZone").appendChild(bubble);
             particles.push(

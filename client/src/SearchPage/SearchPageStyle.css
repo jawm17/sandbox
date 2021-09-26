@@ -73,8 +73,3 @@ table {
 .searchBox:hover {
     cursor: default;
 }
-
-.bubble {
-	border-radius: 50%;
-	background-color: white;
-}
