@@ -15,6 +15,8 @@ export default function SearchPage() {
     let randomPoint2;
     const [width, setWidth] = useState(document.documentElement.clientWidth);
     const [height, setHeight] = useState(document.documentElement.clientHeight);
+    const minecraftBlock = "https://vignette.wikia.nocookie.net/minecraft/images/4/43/SandNew.png/revision/latest?cb=20190910000231";
+    const macCursor = "https://cdn.pixabay.com/photo/2014/04/02/14/06/point-306186_1280.png";
     let particles = [];
     const sizes = [15, 20, 25, 35, 45];
     let interval = useRef(null);
@@ -109,7 +111,7 @@ export default function SearchPage() {
             const direction = Math.random() <= .5 ? -1 : 1;
             const bubble = document.createElement("img");
             bubble.setAttribute("style", `width: ${size}px; height: ${size}px; position: fixed; top:${top}px; left:${left}px;`);
-            bubble.setAttribute("src", "https://cdn.pixabay.com/photo/2014/04/02/14/06/point-306186_1280.png");
+            bubble.setAttribute("src", macCursor);
             bubble.setAttribute("class", "bubble");
             document.getElementById("detectionZone").appendChild(bubble);
             particles.push(
